@@ -27,7 +27,7 @@ library(janitor)
 ```
 
 ```{r}
-d <- fread("241dataset.csv")
+d <- fread("dataset_tmp.csv")
 ```
 
 
@@ -41,12 +41,13 @@ d[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Ar
 
 d[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
 
-d[,esl_treat := ifelse( ESL == "Yes"  & (q2_treat == 1 | q1_treat == 1), 1, 0) ]
-
 d[,all_q_right := q1_right + q2_right ]
+
+d[,esl_treat := ifelse( ESL == "Yes"  & (q2_treat == 1 | q1_treat == 1), 1, 0) ]
 
 tabyl(d, q1_right, q2_right)
 ```
+
 
 ```{r}
 count(d[q1_right == 0 & (Chart_Control1 == 'Wrong' | Chart_Control2 == 'Wrong')])
