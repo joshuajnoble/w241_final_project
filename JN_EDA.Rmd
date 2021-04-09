@@ -5,7 +5,7 @@ output: html_notebook
 
 ```{r}
 
-install.packages ("purrr")
+#install.packages ("purrr")
 ```
 
 
@@ -41,6 +41,10 @@ d[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Ar
 
 d[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
 
+d[,esl_treat := ifelse( ESL == "Yes"  & (q2_treat == 1 | q1_treat == 1), 1, 0) ]
+
+d[,all_q_right := q1_right + q2_right ]
+
 tabyl(d, q1_right, q2_right)
 ```
 
@@ -52,3 +56,34 @@ count(d[q1_right == 0 & (Chart_Control1 == 'Wrong' | Chart_Control2 == 'Wrong')]
 count(d[q2_right == 0 & (Array_Treat1 == 'Wrong' | Array_Treat2 == 'Wrong' | Array_Treat3 == 'Wrong')])
 ```
 
+
+```{r}
+lm(all_q_right ~ q1_treat + q2_treat, data = d)
+```
+
+```{r}
+esl_model <- lm(all_q_right ~ q1_treat + q2_treat + esl_treat + as.factor(ESL == "Yes"), data = d)
+
+stargazer(esl_model,
+          se = list(sqrt(diag(vcovHC(esl_model)))),
+          type = 'text',
+          header = F)
+```
+
+Q1 is harder for treatment, Q2 is not. That makes sense because Pie Charts without labels are awful. Adding in ESL shows that ESL doesn't make the treatment any better, or maybe it's treatment doesn't make ESL any better. Being ESL does actually improve the results though interestingly.
+
+How does ESL affect the two questions separately?
+
+```{r}
+q1_esl_model <- lm(all_q_right ~ q1_treat * as.factor(ESL == 'Yes'), data = d)
+
+q2_esl_model <- lm(all_q_right ~ q2_treat * as.factor(ESL == 'Yes'), data = d)
+
+
+stargazer(q1_esl_model, q2_esl_model,
+          #se = list(sqrt(diag(vcovHC(q1_esl_model)))),
+          type = 'text',
+          header = F)
+```
+
+ Looks like Q1 is just as confusing for ESL as non-ESL, but Q2 looks much worse.  
