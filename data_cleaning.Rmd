@@ -15,7 +15,7 @@ library(janitor)
 
 ```{r}
 # Read CSV
-d <- data.frame(read.csv("final.csv"))
+d <- data.frame(read.csv("final_omnibus.csv"))
 ```
 
 ```{r}
