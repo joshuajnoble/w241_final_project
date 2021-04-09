@@ -56,7 +56,7 @@ names(d2)[1:34] <- new_colnames
 # Recode Variables for Chart Arm
 d2$Chart_Control1 <- recode(d2$Chart_Control1, "for 500 people vaccinated only 50 became infected with COVID-19"="Wrong", 
                             "for 500 people vaccinated only 25 became infected with COVID-19"="Right")
-d2$Chart_Control2 <- recode(d2$Chart_Control1, "for 500 people vaccinated only 75 became infected with COVID-19"="Wrong", 
+d2$Chart_Control2 <- recode(d2$Chart_Control2, "for 500 people vaccinated only 75 became infected with COVID-19"="Wrong", 
                             "for 500 people vaccinated only 10 became infected with COVID-19"="Right")
 d2$Chart_Treat1 <- recode(d2$Chart_Treat1, "IM_bKkswuEiolXdwwu" = "Wrong", "IM_bymouquPLlMsto2" = "Right")
 d2$Chart_Treat2 <- recode(d2$Chart_Treat2, "IM_07EKdPsIO5Cidpk" = "Right", "IM_dbuYoG7rE5mWLbM" = "Wrong")
