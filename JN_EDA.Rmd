@@ -48,19 +48,30 @@ d[,esl_treat := ifelse( ESL == "Yes"  & (q2_treat == 1 | q1_treat == 1), 1, 0) ]
 tabyl(d, q1_right, q2_right)
 ```
 
+Got the first chart wrong:
 
 ```{r}
-count(d[q1_right == 0 & (Chart_Control1 == 'Wrong' | Chart_Control2 == 'Wrong')])
+chart1_wrong <- count(d[q1_right == 0 & q1_treat == 1,]) 
+chart1_wrong / count(d[q1_treat == 1,])
 ```
 
 ```{r}
-count(d[q2_right == 0 & (Array_Treat1 == 'Wrong' | Array_Treat2 == 'Wrong' | Array_Treat3 == 'Wrong')])
+chart2_wrong <- count(d[q2_right == 0 & q2_treat == 1,])
+chart2_wrong / count(d[q2_treat == 1])
 ```
+
+So chart1 is almost 5x harder than chart2. This makes sense: pie charts suck. Let's look at simple stuff:
 
 
 ```{r}
-lm(all_q_right ~ q1_treat + q2_treat, data = d)
+simple_model <- lm(all_q_right ~ q1_treat + q2_treat, data = d)
+stargazer(simple_model,
+          se = list(sqrt(diag(vcovHC(simple_model)))),
+          type = 'text',
+          header = F)
 ```
+
+q1 is definitely harder as a chart. q2 is definitely easier as a chart.
 
 ```{r}
 esl_model <- lm(all_q_right ~ q1_treat + q2_treat + esl_treat + as.factor(ESL == "Yes"), data = d)
@@ -71,15 +82,14 @@ stargazer(esl_model,
           header = F)
 ```
 
-Q1 is harder for treatment, Q2 is not. That makes sense because Pie Charts without labels are awful. Adding in ESL shows that ESL doesn't make the treatment any better, or maybe it's treatment doesn't make ESL any better. Being ESL does actually improve the results though interestingly.
+Q1 is harder for treatment, Q2 is not. That makes sense because Pie Charts without labels are awful. Adding in ESL shows that ESL doesn't make the treatment any better, or maybe it's treatment doesn't make ESL any better. Being ESL does actually improve the overall results though interestingly.
 
-How does ESL affect the two questions separately?
+How does ESL affect the two questions separately? We'll look at interaction effects:
 
 ```{r}
-q1_esl_model <- lm(all_q_right ~ q1_treat * as.factor(ESL == 'Yes'), data = d)
+q1_esl_model <- lm(q1_right ~ q1_treat * as.factor(ESL == 'Yes'), data = d)
 
-q2_esl_model <- lm(all_q_right ~ q2_treat * as.factor(ESL == 'Yes'), data = d)
-
+q2_esl_model <- lm(q2_right ~ q2_treat * as.factor(ESL == 'Yes'), data = d)
 
 stargazer(q1_esl_model, q2_esl_model,
           #se = list(sqrt(diag(vcovHC(q1_esl_model)))),
@@ -87,4 +97,24 @@ stargazer(q1_esl_model, q2_esl_model,
           header = F)
 ```
 
- Looks like Q1 is just as confusing for ESL as non-ESL, but Q2 looks much worse.  
+ Looks like Q1 is just as confusing for ESL as non-ESL, but Q2 looks much worse.
+
+
+```{r}
+esl_model <- ivreg(all_q_right ~  as.factor(ESL == "Yes"), data = d)
+```
+
+ 
+```{r}
+proportions_table = table(d[ESL=="No",], d[ESL=="Yes",])
+chisq.test(proportions_table)
+```
+ 
+Looks like our ESL folks are statistically the same as our non. How about our chart strugglers?
+
+```{r}
+proportions_table_2 = table(d[q1_treat == 1 & q1_right == 0,], d[q2_treat == 1 & q2_right == 0,])
+chisq.test(proportions_table_2)
+```
+
+Also, different. We only had one person attrit so there's no need to do a CACE or attrition calculation.

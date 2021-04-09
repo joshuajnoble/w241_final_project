@@ -1917,12 +1917,13 @@ The following objects are masked from 㤼㸱package:stats㤼㸲:
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Got the first chart wrong:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEudGFibGUiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjEsIm5yb3ciOjF9LCJyZGYiOiJINHNJQUFBQUFBQUFCbDJRU3c2Q01CQ0doNmVCeEVmaXhrdEFJc1FUNkFHTUs3WVZVSW0xSmFWRWw1NGNuSkkyd1hZeG5mbnp6WFQrWGs1RkhoY3hBSGpnaFM1NEFhWVFIcy83N0pBQitDNVdEdmdRcWZ1RDFIWVNBSmI2M2xsUUpQZzdaZVJWZHhweXZ4aEdQQllZbEpSMEN0ck14TGdpa3FRM2dmMDJibWJPY1lkaEdDeHl3VnZaY0lhc3E1WU43QjVoQ2V1ZXFkbFZVajU2OWt4eXRZWTJCek9qem4rdW52UkhQU3JRbzhLYTNSdFdtNVVwdWRaVUZ5djhsOGxDMm9xR1NlTVgxUzZWWEJMRHhTV25ScG04d2ZBRHZpRTI1cVFCQUFBPSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEudGFibGUiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjEsIm5yb3ciOjF9LCJyZGYiOiJINHNJQUFBQUFBQUFCbDJRU3c2Q01CQ0doMGN4a1BoSXZJSmJTTUM0ZHFFSE1LN2NWa0FoWW11Z1JwY2V5QnU1OFFwZUFKeVNOaUZ0TXUzTW42L1QrYnZmSHBiQklRQUFCeHpQQm9kZ0N0NW1GeWVyQk1DMXNiTEFCVitlVDZUbXZRQXdrZWY2ODEwVTc5L0tBUDJhUHlKR3IzbUR4UmpEZnVIVzRUSkFrbGEwa2RCc0lBWVpGVFE2MVhqZnhIWFBJVzR4M0ZxREhQR2JLRGxEMXBZREUvTk9iUWpUTzVPOXN6QXQ3dXdTeG5JTVpSU1VCMHZGSUpkUHVwMXFSVlFyTDJmbmt1VjY1SW9lODBvVkUveVgza0owcTBzbXRGOVVtMGh3UVRVWHBMelNTdThOMmorZkJERG9xQUVBQUE9PSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["n"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"24"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+{"columns":[{"label":["n"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.4355556"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
@@ -1930,154 +1931,215 @@ The following objects are masked from 㤼㸱package:stats㤼㸲:
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnQoZFtxMl9yaWdodCA9PSAwICYgKEFycmF5X1RyZWF0MSA9PSAnV3JvbmcnIHwgQXJyYXlfVHJlYXQyID09ICdXcm9uZycgfCBBcnJheV9UcmVhdDMgPT0gJ1dyb25nJyldKVxuYGBgIn0= -->
-<pre class="r"><code>count(d[q2_right == 0 &amp; (Array_Treat1 == &#39;Wrong&#39; | Array_Treat2 == &#39;Wrong&#39; | Array_Treat3 == &#39;Wrong&#39;)])</code></pre>
-<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEudGFibGUiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjEsIm5yb3ciOjF9LCJyZGYiOiJINHNJQUFBQUFBQUFCbDJRVFFyQ01CQ0ZwNzlpd1NwNGpoYXF1SGFoQnhCWDNjWWF0UmdUU1NPNmRPR05QSWhuOEJhdTFFbEpvQ1F3eWN6ankyUmUxc3R5bXBRSkFBUVF4RDRFRWFZUUwxYkZaRFlCQ0gyc1BBaWhyODhiVXVOV0FFajFPWC9PSDYvMzlPT0FmU211T1NjbjJtQXh3UER2dVAxd09XQlVNZEpvYU5RUmt5MVJKTjlKdk8vaXRtY1g5emh1WDRmc2liT3FCVWZXMXdOSDdoM3BDTU1MMTcyM1dYVzQ4R05XNkRHTVVUQWVQQk9kWEQ4Wi9reXJ5TFNLS2QvWG5OcVJHZGxRWm9vVS82VzFrSjlselpYMWkycVRLNkdJNVpKS01LdTAzdUQ3QithRWlSK29BUUFBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["n"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.07518797"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>So chart1 is almost 5x harder than chart2. This makes sense: pie charts suck. Let’s look at simple stuff:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubG0oYWxsX3FfcmlnaHQgfiBxMV90cmVhdCArIHEyX3RyZWF0LCBkYXRhID0gZClcblxuYGBgXG5gYGAifQ== -->
-<pre class="r"><code>```r
-lm(all_q_right ~ q1_treat + q2_treat, data = d)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2ltcGxlX21vZGVsIDwtIGxtKGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgKyBxMl90cmVhdCwgZGF0YSA9IGQpXG5zdGFyZ2F6ZXIoc2ltcGxlX21vZGVsLFxuICAgICAgICAgIHNlID0gbGlzdChzcXJ0KGRpYWcodmNvdkhDKHNpbXBsZV9tb2RlbCkpKSksXG4gICAgICAgICAgdHlwZSA9ICd0ZXh0JyxcbiAgICAgICAgICBoZWFkZXIgPSBGKVxuXG5gYGAifQ== -->
+<pre class="r"><code>simple_model &lt;- lm(all_q_right ~ q1_treat + q2_treat, data = d)
+stargazer(simple_model,
+          se = list(sqrt(diag(vcovHC(simple_model)))),
+          type = &#39;text&#39;,
+          header = F)
 </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZGxlbmd0aCBvZiBOVUxMIGNhbm5vdCBiZSBjaGFuZ2VkbGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRcbiJ9 -->
+<pre><code>length of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changed</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICAgICAgICAgICAgICAgICAgICAgICAgRGVwZW5kZW50IHZhcmlhYmxlOiAgICBcbiAgICAgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgYWxsX3FfcmlnaHQgICAgICAgIFxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbnExX3RyZWF0ICAgICAgICAgICAgICAgICAgICAgLTAuMzk5KioqICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4wNzcpICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbnEyX3RyZWF0ICAgICAgICAgICAgICAgICAgICAgMC40MTIqKiogICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4wNzYpICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbkNvbnN0YW50ICAgICAgICAgICAgICAgICAgICAgMS41NDcqKiogICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4wNzIpICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5PYnNlcnZhdGlvbnMgICAgICAgICAgICAgICAgICAgIDI5OCAgICAgICAgICAgIFxuUjIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMTQzICAgICAgICAgICBcbkFkanVzdGVkIFIyICAgICAgICAgICAgICAgICAgICAwLjEzOCAgICAgICAgICAgXG5SZXNpZHVhbCBTdGQuIEVycm9yICAgICAgMC42ODggKGRmID0gMjk1KSAgICAgIFxuRiBTdGF0aXN0aWMgICAgICAgICAgIDI0LjY4MSoqKiAoZGYgPSAyOyAyOTUpICBcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5Ob3RlOiAgICAgICAgICAgICAgICpwPDAuMTsgKipwPDAuMDU7ICoqKnA8MC4wMVxuIn0= -->
 <pre><code>
-&lt;!-- rnb-source-end --&gt;
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                            all_q_right        
+-----------------------------------------------
+q1_treat                     -0.399***         
+                              (0.077)          
+                                               
+q2_treat                     0.412***          
+                              (0.076)          
+                                               
+Constant                     1.547***          
+                              (0.072)          
+                                               
+-----------------------------------------------
+Observations                    298            
+R2                             0.143           
+Adjusted R2                    0.138           
+Residual Std. Error      0.688 (df = 295)      
+F Statistic           24.681*** (df = 2; 295)  
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>q1 is definitely harder as a chart. q2 is definitely easier as a chart.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXNsX21vZGVsIDwtIGxtKGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgKyBxMl90cmVhdCArIGVzbF90cmVhdCArIGFzLmZhY3RvcihFU0wgPT0gXCJZZXNcIiksIGRhdGEgPSBkKVxuXG5zdGFyZ2F6ZXIoZXNsX21vZGVsLFxuICAgICAgICAgIHNlID0gbGlzdChzcXJ0KGRpYWcodmNvdkhDKGVzbF9tb2RlbCkpKSksXG4gICAgICAgICAgdHlwZSA9ICd0ZXh0JyxcbiAgICAgICAgICBoZWFkZXIgPSBGKVxuXG5gYGAifQ== -->
+<pre class="r"><code>esl_model &lt;- lm(all_q_right ~ q1_treat + q2_treat + esl_treat + as.factor(ESL == &quot;Yes&quot;), data = d)
 
-&lt;!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgKyBxMl90cmVhdCwgZGF0YSA9IGQpXG5cbkNvZWZmaWNpZW50czpcbihJbnRlcmNlcHQpICAgICBxMV90cmVhdCAgICAgcTJfdHJlYXQgIFxuICAgICAxLjU0NzIgICAgICAtMC4zOTkyICAgICAgIDAuNDExNiAgXG4ifQ== --&gt;
-</code></pre>
-<p>Call: lm(formula = all_q_right ~ q1_treat + q2_treat, data = d)</p>
-<p>Coefficients: (Intercept) q1_treat q2_treat<br />
-1.5472 -0.3992 0.4116</p>
-<pre><code>
-
-
-&lt;!-- rnb-output-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc3RhcmdhemVyKGVzbF9tb2RlbCxcbiAgICAgICAgICBzZSA9IGxpc3Qoc3FydChkaWFnKHZjb3ZIQyhlc2xfbW9kZWwpKSkpLFxuICAgICAgICAgIHR5cGUgPSAndGV4dCcsXG4gICAgICAgICAgaGVhZGVyID0gRilcblxuYGBgXG5gYGAifQ== --&gt;
-
-```r
-```r
 stargazer(esl_model,
           se = list(sqrt(diag(vcovHC(esl_model)))),
           type = &#39;text&#39;,
           header = F)
 </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZGxlbmd0aCBvZiBOVUxMIGNhbm5vdCBiZSBjaGFuZ2VkbGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRcbiJ9 -->
+<pre><code>length of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changed</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBEZXBlbmRlbnQgdmFyaWFibGU6ICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFsbF9xX3JpZ2h0ICAgICAgICBcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxucTFfdHJlYXQgICAgICAgICAgICAgICAgICAgICAgICAgLTAuMjYwKioqICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMDk3KSAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxucTJfdHJlYXQgICAgICAgICAgICAgICAgICAgICAgICAgMC40NzAqKiogICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMDg3KSAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZXNsX3RyZWF0ICAgICAgICAgICAgICAgICAgICAgICAgLTAuMzQ1KiogICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMTQ4KSAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuYXMuZmFjdG9yKEVTTCA9PSBcIlllc1wiKSAgICAgICAgICAwLjQ4NyoqKiAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xNTEpICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5Db25zdGFudCAgICAgICAgICAgICAgICAgICAgICAgICAxLjI4MioqKiAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xMjQpICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbk9ic2VydmF0aW9ucyAgICAgICAgICAgICAgICAgICAgICAgIDI5OCAgICAgICAgICAgIFxuUjIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjE2NSAgICAgICAgICAgXG5BZGp1c3RlZCBSMiAgICAgICAgICAgICAgICAgICAgICAgIDAuMTUzICAgICAgICAgICBcblJlc2lkdWFsIFN0ZC4gRXJyb3IgICAgICAgICAgMC42ODIgKGRmID0gMjkzKSAgICAgIFxuRiBTdGF0aXN0aWMgICAgICAgICAgICAgICAxNC40NTEqKiogKGRmID0gNDsgMjkzKSAgXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbk5vdGU6ICAgICAgICAgICAgICAgICAgICpwPDAuMTsgKipwPDAuMDU7ICoqKnA8MC4wMVxuIn0= -->
 <pre><code>
-&lt;!-- rnb-source-end --&gt;
+===================================================
+                            Dependent variable:    
+                        ---------------------------
+                                all_q_right        
+---------------------------------------------------
+q1_treat                         -0.260***         
+                                  (0.097)          
+                                                   
+q2_treat                         0.470***          
+                                  (0.087)          
+                                                   
+esl_treat                        -0.345**          
+                                  (0.148)          
+                                                   
+as.factor(ESL == &quot;Yes&quot;)          0.487***          
+                                  (0.151)          
+                                                   
+Constant                         1.282***          
+                                  (0.124)          
+                                                   
+---------------------------------------------------
+Observations                        298            
+R2                                 0.165           
+Adjusted R2                        0.153           
+Residual Std. Error          0.682 (df = 293)      
+F Statistic               14.451*** (df = 4; 293)  
+===================================================
+Note:                   *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Q1 is harder for treatment, Q2 is not. That makes sense because Pie Charts without labels are awful. Adding in ESL shows that ESL doesn’t make the treatment any better, or maybe it’s treatment doesn’t make ESL any better. Being ESL does actually improve the overall results though interestingly.</p>
+<p>How does ESL affect the two questions separately? We’ll look at interaction effects:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucTFfZXNsX21vZGVsIDwtIGxtKHExX3JpZ2h0IH4gcTFfdHJlYXQgKiBhcy5mYWN0b3IoRVNMID09ICdZZXMnKSwgZGF0YSA9IGQpXG5cbnEyX2VzbF9tb2RlbCA8LSBsbShxMl9yaWdodCB+IHEyX3RyZWF0ICogYXMuZmFjdG9yKEVTTCA9PSAnWWVzJyksIGRhdGEgPSBkKVxuXG5cbnN0YXJnYXplcihxMV9lc2xfbW9kZWwsIHEyX2VzbF9tb2RlbCxcbiAgICAgICAgICAjc2UgPSBsaXN0KHNxcnQoZGlhZyh2Y292SEMocTFfZXNsX21vZGVsKSkpKSxcbiAgICAgICAgICB0eXBlID0gJ3RleHQnLFxuICAgICAgICAgIGhlYWRlciA9IEYpXG5cbmBgYCJ9 -->
+<pre class="r"><code>q1_esl_model &lt;- lm(q1_right ~ q1_treat * as.factor(ESL == &#39;Yes&#39;), data = d)
 
-&lt;!-- rnb-output-begin eyJkYXRhIjoibGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZGxlbmd0aCBvZiBOVUxMIGNhbm5vdCBiZSBjaGFuZ2VkbGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRcblxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgRGVwZW5kZW50IHZhcmlhYmxlOiAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhbGxfcV9yaWdodCAgICAgICAgXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbnExX3RyZWF0ICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjI2MCoqKiAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgwLjA5NykgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbnEyX3RyZWF0ICAgICAgICAgICAgICAgICAgICAgICAgIDAuNDcwKioqICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgwLjA4NykgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmVzbF90cmVhdCAgICAgICAgICAgICAgICAgICAgICAgIC0wLjM0NSoqICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgwLjE0OCkgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmFzLmZhY3RvcihFU0wgPT0gXFxZZXNcXCkgICAgICAgICAgMC40ODcqKiogICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMTUxKSAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuQ29uc3RhbnQgICAgICAgICAgICAgICAgICAgICAgICAgMS4yODIqKiogICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMTI0KSAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5PYnNlcnZhdGlvbnMgICAgICAgICAgICAgICAgICAgICAgICAyOTggICAgICAgICAgICBcblIyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4xNjUgICAgICAgICAgIFxuQWRqdXN0ZWQgUjIgICAgICAgICAgICAgICAgICAgICAgICAwLjE1MyAgICAgICAgICAgXG5SZXNpZHVhbCBTdGQuIEVycm9yICAgICAgICAgIDAuNjgyIChkZiA9IDI5MykgICAgICBcbkYgU3RhdGlzdGljICAgICAgICAgICAgICAgMTQuNDUxKioqIChkZiA9IDQ7IDI5MykgIFxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5Ob3RlOiAgICAgICAgICAgICAgICAgICAqcDwwLjE7ICoqcDwwLjA1OyAqKipwPDAuMDFcbiJ9 --&gt;
+q2_esl_model &lt;- lm(q2_right ~ q2_treat * as.factor(ESL == &#39;Yes&#39;), data = d)
+
+
+stargazer(q1_esl_model, q2_esl_model,
+          #se = list(sqrt(diag(vcovHC(q1_esl_model)))),
+          type = &#39;text&#39;,
+          header = F)
 </code></pre>
-<p>length of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changed</p>
-<p>=================================================== Dependent variable:<br />
-————————— all_q_right<br />
-————————————————— q1_treat -0.260***<br />
-(0.097)</p>
-<p>q2_treat 0.470***<br />
-(0.087)</p>
-<p>esl_treat -0.345**<br />
-(0.148)</p>
-<p>as.factor(ESL == ) 0.487***<br />
-(0.151)</p>
-<p>Constant 1.282***<br />
-(0.124)</p>
-<table style="width:72%;">
-<colgroup>
-<col width="72%"></col>
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">Observations 298 R2 0.165 Adjusted R2 0.153 Residual Std. Error 0.682 (df = 293) F Statistic 14.451*** (df = 4; 293) =================================================== Note: <em>p&lt;0.1; <strong>p&lt;0.05; </strong></em>p&lt;0.01 ```</td>
-</tr>
-<tr class="even">
-<td align="left"><!-- rnb-output-end --></td>
-</tr>
-<tr class="odd">
-<td align="left"><!-- rnb-chunk-end --></td>
-</tr>
-<tr class="even">
-<td align="left"><!-- rnb-text-begin --></td>
-</tr>
-<tr class="odd">
-<td align="left">Q1 is harder for treatment, Q2 is not. That makes sense because Pie Charts without labels are awful. Adding in ESL shows that ESL doesn’t make the treatment any better, or maybe it’s treatment doesn’t make ESL any better. Being ESL does actually improve the results though interestingly.</td>
-</tr>
-<tr class="even">
-<td align="left">How does ESL affect the two questions separately?</td>
-</tr>
-<tr class="odd">
-<td align="left"><!-- rnb-text-end --></td>
-</tr>
-<tr class="even">
-<td align="left"><!-- rnb-chunk-begin --></td>
-</tr>
-<tr class="odd">
-<td align="left"><!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxucTFfZXNsX21vZGVsIDwtIGxtKGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgKiBhcy5mYWN0b3IoRVNMID09ICdZZXMnKSwgZGF0YSA9IGQpXG5cbnEyX2VzbF9tb2RlbCA8LSBsbShhbGxfcV9yaWdodCB+IHEyX3RyZWF0ICogYXMuZmFjdG9yKEVTTCA9PSAnWWVzJyksIGRhdGEgPSBkKVxuXG5cbnN0YXJnYXplcihxMV9lc2xfbW9kZWwsIHEyX2VzbF9tb2RlbCxcbiAgICAgICAgICAjc2UgPSBsaXN0KHNxcnQoZGlhZyh2Y292SEMocTFfZXNsX21vZGVsKSkpKSxcbiAgICAgICAgICB0eXBlID0gJ3RleHQnLFxuICAgICAgICAgIGhlYWRlciA9IEYpXG5cbmBgYFxuYGBgIn0= --></td>
-</tr>
-<tr class="even">
-<td align="left"><code>r</code>r q1_esl_model &lt;- lm(all_q_right ~ q1_treat * as.factor(ESL == ‘Yes’), data = d)</td>
-</tr>
-<tr class="odd">
-<td align="left">q2_esl_model &lt;- lm(all_q_right ~ q2_treat * as.factor(ESL == ‘Yes’), data = d)</td>
-</tr>
-<tr class="even">
-<td align="left">stargazer(q1_esl_model, q2_esl_model, #se = list(sqrt(diag(vcovHC(q1_esl_model)))), type = ‘text’, header = F)</td>
-</tr>
-<tr class="odd">
-<td align="left"><code></code></td>
-</tr>
-<tr class="even">
-<td align="left"><!-- rnb-source-end --></td>
-</tr>
-<tr class="odd">
-<td align="left"><!-- rnb-output-begin eyJkYXRhIjoibGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZGxlbmd0aCBvZiBOVUxMIGNhbm5vdCBiZSBjaGFuZ2VkbGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZFxuXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRGVwZW5kZW50IHZhcmlhYmxlOiAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFsbF9xX3JpZ2h0ICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxKSAgICAgICAgICAgICgyKSAgICAgXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5xMV90cmVhdCAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjYxMioqKiAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xOTkpICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5xMl90cmVhdCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuNzYwKioqICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xNTkpICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5hcy5mYWN0b3IoRVNMID09IFxcWWVzXFwpICAgICAgICAgICAgICAwLjAyMiAgICAgICAgMC4zODYqKiogICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgwLjIwMSkgICAgICAgICgwLjExOSkgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbnExX3RyZWF0OmFzLmZhY3RvcihFU0wgPT0gXFxZZXNcXCkgICAgIDAuMjMzICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMjI3KSAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxucTJfdHJlYXQ6YXMuZmFjdG9yKEVTTCA9PSBcXFllc1xcKSAgICAgICAgICAgICAgICAgIC0wLjQ0MSoqICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xODUpICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5Db25zdGFudCAgICAgICAgICAgICAgICAgICAgICAgICAgICAxLjc1MCoqKiAgICAgIDAuOTU5KioqICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xNzgpICAgICAgICAoMC4xMDApICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5PYnNlcnZhdGlvbnMgICAgICAgICAgICAgICAgICAgICAgICAgIDI5OCAgICAgICAgICAgIDI5OCAgICAgXG5SMiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wODYgICAgICAgICAgMC4xMjIgICAgXG5BZGp1c3RlZCBSMiAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wNzcgICAgICAgICAgMC4xMTMgICAgXG5SZXNpZHVhbCBTdGQuIEVycm9yIChkZiA9IDI5NCkgICAgICAgMC43MTIgICAgICAgICAgMC42OTggICAgXG5GIFN0YXRpc3RpYyAoZGYgPSAzOyAyOTQpICAgICAgICAgICA5LjIzNCoqKiAgICAgIDEzLjYwNCoqKiAgXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5Ob3RlOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKnA8MC4xOyAqKnA8MC4wNTsgKioqcDwwLjAxXG4ifQ== --></td>
-</tr>
-<tr class="even">
-<td align="left">``` length of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changed</td>
-</tr>
-<tr class="odd">
-<td align="left">============================================================= Dependent variable: —————————- all_q_right (1) (2)</td>
-</tr>
-</tbody>
-</table>
-<p>q1_treat -0.612***<br />
-(0.199)</p>
-<p>q2_treat 0.760***<br />
-(0.159)</p>
-<p>as.factor(ESL == ) 0.022 0.386***<br />
-(0.201) (0.119)</p>
-<p>q1_treat:as.factor(ESL == ) 0.233<br />
-(0.227)</p>
-<p>q2_treat:as.factor(ESL == ) -0.441**<br />
-(0.185)</p>
-<p>Constant 1.750*** 0.959***<br />
-(0.178) (0.100)</p>
-<hr />
-<p>Observations 298 298<br />
-R2 0.086 0.122<br />
-Adjusted R2 0.077 0.113<br />
-Residual Std. Error (df = 294) 0.712 0.698<br />
-F Statistic (df = 3; 294) 9.234*** 13.604***<br />
-============================================================= Note: <em>p&lt;0.1; <strong>p&lt;0.05; </strong></em>p&lt;0.01 ```</p>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZGxlbmd0aCBvZiBOVUxMIGNhbm5vdCBiZSBjaGFuZ2VkbGVuZ3RoIG9mIE5VTEwgY2Fubm90IGJlIGNoYW5nZWRsZW5ndGggb2YgTlVMTCBjYW5ub3QgYmUgY2hhbmdlZFxuIn0= -->
+<pre><code>length of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changedlength of NULL cannot be changed</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRGVwZW5kZW50IHZhcmlhYmxlOiAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBxMV9yaWdodCAgICAgIHEyX3JpZ2h0ICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxKSAgICAgICAgICAgICgyKSAgICAgXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5xMV90cmVhdCAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjM5OCoqKiAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xMjcpICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5xMl90cmVhdCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuNDM4KioqICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4wODgpICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5hcy5mYWN0b3IoRVNMID09IFwiWWVzXCIpICAgICAgICAgICAgICAwLjAzNyAgICAgICAgMC4xOTQqKiogICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgwLjEyOSkgICAgICAgICgwLjA2NikgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbnExX3RyZWF0OmFzLmZhY3RvcihFU0wgPT0gXCJZZXNcIikgICAgIDAuMDg2ICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDAuMTQ1KSAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxucTJfdHJlYXQ6YXMuZmFjdG9yKEVTTCA9PSBcIlllc1wiKSAgICAgICAgICAgICAgICAgIC0wLjI1MSoqICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xMDMpICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5Db25zdGFudCAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjg3NSoqKiAgICAgIDAuNTMxKioqICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMC4xMTQpICAgICAgICAoMC4wNTYpICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5PYnNlcnZhdGlvbnMgICAgICAgICAgICAgICAgICAgICAgICAgIDI5OCAgICAgICAgICAgIDI5OCAgICAgXG5SMiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4xMDQgICAgICAgICAgMC4xMjQgICAgXG5BZGp1c3RlZCBSMiAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wOTUgICAgICAgICAgMC4xMTUgICAgXG5SZXNpZHVhbCBTdGQuIEVycm9yIChkZiA9IDI5NCkgICAgICAgMC40NTUgICAgICAgICAgMC4zODkgICAgXG5GIFN0YXRpc3RpYyAoZGYgPSAzOyAyOTQpICAgICAgICAgIDExLjM4MyoqKiAgICAgIDEzLjgxNCoqKiAgXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5Ob3RlOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKnA8MC4xOyAqKnA8MC4wNTsgKioqcDwwLjAxXG4ifQ== -->
+<pre><code>
+=============================================================
+                                     Dependent variable:     
+                                 ----------------------------
+                                    q1_right      q2_right   
+                                      (1)            (2)     
+-------------------------------------------------------------
+q1_treat                           -0.398***                 
+                                    (0.127)                  
+                                                             
+q2_treat                                          0.438***   
+                                                   (0.088)   
+                                                             
+as.factor(ESL == &quot;Yes&quot;)              0.037        0.194***   
+                                    (0.129)        (0.066)   
+                                                             
+q1_treat:as.factor(ESL == &quot;Yes&quot;)     0.086                   
+                                    (0.145)                  
+                                                             
+q2_treat:as.factor(ESL == &quot;Yes&quot;)                  -0.251**   
+                                                   (0.103)   
+                                                             
+Constant                            0.875***      0.531***   
+                                    (0.114)        (0.056)   
+                                                             
+-------------------------------------------------------------
+Observations                          298            298     
+R2                                   0.104          0.124    
+Adjusted R2                          0.095          0.115    
+Residual Std. Error (df = 294)       0.455          0.389    
+F Statistic (df = 3; 294)          11.383***      13.814***  
+=============================================================
+Note:                             *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Looks like Q1 is just as confusing for ESL as non-ESL, but Q2 looks much worse.</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXNsX21vZGVsIDwtIGl2cmVnKGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgfCBhcy5mYWN0b3IoRVNMID09IFwiWWVzXCIpICsgcTJfdHJlYXQgfCBhcy5mYWN0b3IoRVNMID09IFwiWWVzXCIpLCBkYXRhID0gZClcblxuYGBgIn0= -->
+<pre class="r"><code>esl_model &lt;- ivreg(all_q_right ~ q1_treat | as.factor(ESL == &quot;Yes&quot;) + q2_treat | as.factor(ESL == &quot;Yes&quot;), data = d)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaXZyZWcoYWxsX3FfcmlnaHQgfiBxMV90cmVhdCB8IGFzLmZhY3RvcihFU0wgPT0gXCJZZXNcIikgKyBxMl90cmVhdCB8ICA6IFxuICBsZW5ndGgoZm9ybXVsYSlbMl0gJWluJSAxOjIgaXMgbm90IFRSVUVcbiJ9 -->
+<pre><code>Error in ivreg(all_q_right ~ q1_treat | as.factor(ESL == &quot;Yes&quot;) + q2_treat |  : 
+  length(formula)[2] %in% 1:2 is not TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hpc3EudGVzdChwcm9wb3J0aW9uc190YWJsZSlcblxuYGBgIn0= -->
+<pre class="r"><code>chisq.test(proportions_table)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2hpLXNxdWFyZWQgYXBwcm94aW1hdGlvbiBtYXkgYmUgaW5jb3JyZWN0XG4ifQ== -->
+<pre><code>Chi-squared approximation may be incorrect</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFBlYXJzb24ncyBDaGktc3F1YXJlZCB0ZXN0XG5cbmRhdGE6ICBwcm9wb3J0aW9uc190YWJsZVxuWC1zcXVhcmVkID0gMTU2MCwgZGYgPSAxNTIxLCBwLXZhbHVlID0gMC4yMzc5XG4ifQ== -->
+<pre><code>
+    Pearson&#39;s Chi-squared test
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCg0KI2luc3RhbGwucGFja2FnZXMgKCJwdXJyciIpDQpgYGANCg0KDQpgYGB7cn0NCmxpYnJhcnkoZGF0YS50YWJsZSkNCg0KbGlicmFyeShzYW5kd2ljaCkNCmxpYnJhcnkobG10ZXN0KQ0KDQpsaWJyYXJ5KEFFUikgDQoNCmxpYnJhcnkgKHB1cnJyKQ0KDQpsaWJyYXJ5KGdncGxvdDIpIA0KbGlicmFyeShwYXRjaHdvcmspDQpsaWJyYXJ5KHN0YXJnYXplcikNCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KGphbml0b3IpDQpgYGANCg0KYGBge3J9DQpkIDwtIGZyZWFkKCJkYXRhc2V0X3RtcC5jc3YiKQ0KYGBgDQoNCg0KYGBge3J9DQoNCmRbLHExX3JpZ2h0IDo9IGlmZWxzZShDaGFydF9Db250cm9sMSA9PSAnUmlnaHQnIHwgQ2hhcnRfQ29udHJvbDIgPT0gJ1JpZ2h0JyB8IENoYXJ0X1RyZWF0MSA9PSAnUmlnaHQnIHwgQ2hhcnRfVHJlYXQyID09ICdSaWdodCcsIDEsIDApIF0NCg0KZFsscTFfdHJlYXQgOj0gaWZlbHNlKCBDaGFydF9Db250cm9sMSA9PSAiIiAmIENoYXJ0X0NvbnRyb2wxID09ICIiLCAxLCAwKSBdDQoNCmRbLHEyX3JpZ2h0IDo9IGlmZWxzZShBcnJheV9Db250cm9sMSA9PSAnUmlnaHQnIHwgQXJyYXlfQ29udHJvbDIgPT0gJ1JpZ2h0JyB8IEFycmF5X0NvbnRyb2wzID09ICdSaWdodCcgfCBBcnJheV9UcmVhdDEgPT0gJ1JpZ2h0JyB8IEFycmF5X1RyZWF0MiA9PSAnUmlnaHQnIHwgQXJyYXlfVHJlYXQzID09ICdSaWdodCcsIDEsIDApIF0NCg0KZFsscTJfdHJlYXQgOj0gaWZlbHNlKCBBcnJheV9UcmVhdDIgICE9ICIiIHwgQXJyYXlfVHJlYXQxICAhPSAiIiB8IEFycmF5X1RyZWF0MyAhPSAiIiwgMSwgMCkgXQ0KDQpkWyxhbGxfcV9yaWdodCA6PSBxMV9yaWdodCArIHEyX3JpZ2h0IF0NCg0KZFssZXNsX3RyZWF0IDo9IGlmZWxzZSggRVNMID09ICJZZXMiICAmIChxMl90cmVhdCA9PSAxIHwgcTFfdHJlYXQgPT0gMSksIDEsIDApIF0NCg0KdGFieWwoZCwgcTFfcmlnaHQsIHEyX3JpZ2h0KQ0KYGBgDQoNCg0KYGBge3J9DQpjb3VudChkW3ExX3JpZ2h0ID09IDAgJiAoQ2hhcnRfQ29udHJvbDEgPT0gJ1dyb25nJyB8IENoYXJ0X0NvbnRyb2wyID09ICdXcm9uZycpXSkNCmBgYA0KDQpgYGB7cn0NCmNvdW50KGRbcTJfcmlnaHQgPT0gMCAmIChBcnJheV9UcmVhdDEgPT0gJ1dyb25nJyB8IEFycmF5X1RyZWF0MiA9PSAnV3JvbmcnIHwgQXJyYXlfVHJlYXQzID09ICdXcm9uZycpXSkNCmBgYA0KDQoNCmBgYHtyfQ0KbG0oYWxsX3FfcmlnaHQgfiBxMV90cmVhdCArIHEyX3RyZWF0LCBkYXRhID0gZCkNCmBgYA0KDQpgYGB7cn0NCmVzbF9tb2RlbCA8LSBsbShhbGxfcV9yaWdodCB+IHExX3RyZWF0ICsgcTJfdHJlYXQgKyBlc2xfdHJlYXQgKyBhcy5mYWN0b3IoRVNMID09ICJZZXMiKSwgZGF0YSA9IGQpDQoNCnN0YXJnYXplcihlc2xfbW9kZWwsDQogICAgICAgICAgc2UgPSBsaXN0KHNxcnQoZGlhZyh2Y292SEMoZXNsX21vZGVsKSkpKSwNCiAgICAgICAgICB0eXBlID0gJ3RleHQnLA0KICAgICAgICAgIGhlYWRlciA9IEYpDQpgYGANCg0KUTEgaXMgaGFyZGVyIGZvciB0cmVhdG1lbnQsIFEyIGlzIG5vdC4gVGhhdCBtYWtlcyBzZW5zZSBiZWNhdXNlIFBpZSBDaGFydHMgd2l0aG91dCBsYWJlbHMgYXJlIGF3ZnVsLiBBZGRpbmcgaW4gRVNMIHNob3dzIHRoYXQgRVNMIGRvZXNuJ3QgbWFrZSB0aGUgdHJlYXRtZW50IGFueSBiZXR0ZXIsIG9yIG1heWJlIGl0J3MgdHJlYXRtZW50IGRvZXNuJ3QgbWFrZSBFU0wgYW55IGJldHRlci4gQmVpbmcgRVNMIGRvZXMgYWN0dWFsbHkgaW1wcm92ZSB0aGUgcmVzdWx0cyB0aG91Z2ggaW50ZXJlc3RpbmdseS4NCg0KSG93IGRvZXMgRVNMIGFmZmVjdCB0aGUgdHdvIHF1ZXN0aW9ucyBzZXBhcmF0ZWx5Pw0KDQpgYGB7cn0NCnExX2VzbF9tb2RlbCA8LSBsbShhbGxfcV9yaWdodCB+IHExX3RyZWF0ICogYXMuZmFjdG9yKEVTTCA9PSAnWWVzJyksIGRhdGEgPSBkKQ0KDQpxMl9lc2xfbW9kZWwgPC0gbG0oYWxsX3FfcmlnaHQgfiBxMl90cmVhdCAqIGFzLmZhY3RvcihFU0wgPT0gJ1llcycpLCBkYXRhID0gZCkNCg0KDQpzdGFyZ2F6ZXIocTFfZXNsX21vZGVsLCBxMl9lc2xfbW9kZWwsDQogICAgICAgICAgI3NlID0gbGlzdChzcXJ0KGRpYWcodmNvdkhDKHExX2VzbF9tb2RlbCkpKSksDQogICAgICAgICAgdHlwZSA9ICd0ZXh0JywNCiAgICAgICAgICBoZWFkZXIgPSBGKQ0KYGBgDQoNCiBMb29rcyBsaWtlIFExIGlzIGp1c3QgYXMgY29uZnVzaW5nIGZvciBFU0wgYXMgbm9uLUVTTCwgYnV0IFEyIGxvb2tzIG11Y2ggd29yc2UuICANCg==</div>
+data:  proportions_table
+X-squared = 1560, df = 1521, p-value = 0.2379</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Looks like our ESL folks are statistically the same as our non. How about our chart strugglers?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvcG9ydGlvbnNfdGFibGVfMiA9IHRhYmxlKGRbcTFfdHJlYXQgPT0gMSAmIHExX3JpZ2h0ID09IDAsXSwgZFtxMl90cmVhdCA9PSAxICYgcTJfcmlnaHQgPT0gMCxdKVxuY2hpc3EudGVzdChwcm9wb3J0aW9uc190YWJsZV8yKVxuXG5gYGAifQ== -->
+<pre class="r"><code>proportions_table_2 = table(d[q1_treat == 1 &amp; q1_right == 0,], d[q2_treat == 1 &amp; q2_right == 0,])
+chisq.test(proportions_table_2)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2hpLXNxdWFyZWQgYXBwcm94aW1hdGlvbiBtYXkgYmUgaW5jb3JyZWN0XG4ifQ== -->
+<pre><code>Chi-squared approximation may be incorrect</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFBlYXJzb24ncyBDaGktc3F1YXJlZCB0ZXN0XG5cbmRhdGE6ICBwcm9wb3J0aW9uc190YWJsZV8yXG5YLXNxdWFyZWQgPSAxNDEwLCBkZiA9IDEzNjgsIHAtdmFsdWUgPSAwLjIwOTdcbiJ9 -->
+<pre><code>
+    Pearson&#39;s Chi-squared test
+
+data:  proportions_table_2
+X-squared = 1410, df = 1368, p-value = 0.2097</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Also, different. We only had one person attrit so there’s no need to do a CACE or attrition calculation.</p>
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCg0KI2luc3RhbGwucGFja2FnZXMgKCJwdXJyciIpDQpgYGANCg0KDQpgYGB7cn0NCmxpYnJhcnkoZGF0YS50YWJsZSkNCg0KbGlicmFyeShzYW5kd2ljaCkNCmxpYnJhcnkobG10ZXN0KQ0KDQpsaWJyYXJ5KEFFUikgDQoNCmxpYnJhcnkgKHB1cnJyKQ0KDQpsaWJyYXJ5KGdncGxvdDIpIA0KbGlicmFyeShwYXRjaHdvcmspDQpsaWJyYXJ5KHN0YXJnYXplcikNCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KGphbml0b3IpDQpgYGANCg0KYGBge3J9DQpkIDwtIGZyZWFkKCJkYXRhc2V0X3RtcC5jc3YiKQ0KYGBgDQoNCg0KYGBge3J9DQoNCmRbLHExX3JpZ2h0IDo9IGlmZWxzZShDaGFydF9Db250cm9sMSA9PSAnUmlnaHQnIHwgQ2hhcnRfQ29udHJvbDIgPT0gJ1JpZ2h0JyB8IENoYXJ0X1RyZWF0MSA9PSAnUmlnaHQnIHwgQ2hhcnRfVHJlYXQyID09ICdSaWdodCcsIDEsIDApIF0NCg0KZFsscTFfdHJlYXQgOj0gaWZlbHNlKCBDaGFydF9Db250cm9sMSA9PSAiIiAmIENoYXJ0X0NvbnRyb2wxID09ICIiLCAxLCAwKSBdDQoNCmRbLHEyX3JpZ2h0IDo9IGlmZWxzZShBcnJheV9Db250cm9sMSA9PSAnUmlnaHQnIHwgQXJyYXlfQ29udHJvbDIgPT0gJ1JpZ2h0JyB8IEFycmF5X0NvbnRyb2wzID09ICdSaWdodCcgfCBBcnJheV9UcmVhdDEgPT0gJ1JpZ2h0JyB8IEFycmF5X1RyZWF0MiA9PSAnUmlnaHQnIHwgQXJyYXlfVHJlYXQzID09ICdSaWdodCcsIDEsIDApIF0NCg0KZFsscTJfdHJlYXQgOj0gaWZlbHNlKCBBcnJheV9UcmVhdDIgICE9ICIiIHwgQXJyYXlfVHJlYXQxICAhPSAiIiB8IEFycmF5X1RyZWF0MyAhPSAiIiwgMSwgMCkgXQ0KDQpkWyxhbGxfcV9yaWdodCA6PSBxMV9yaWdodCArIHEyX3JpZ2h0IF0NCg0KZFssZXNsX3RyZWF0IDo9IGlmZWxzZSggRVNMID09ICJZZXMiICAmIChxMl90cmVhdCA9PSAxIHwgcTFfdHJlYXQgPT0gMSksIDEsIDApIF0NCg0KdGFieWwoZCwgcTFfcmlnaHQsIHEyX3JpZ2h0KQ0KYGBgDQoNCkdvdCB0aGUgZmlyc3QgY2hhcnQgd3Jvbmc6DQoNCmBgYHtyfQ0KY2hhcnQxX3dyb25nIDwtIGNvdW50KGRbcTFfcmlnaHQgPT0gMCAmIHExX3RyZWF0ID09IDEsXSkgDQpjaGFydDFfd3JvbmcgLyBjb3VudChkW3ExX3RyZWF0ID09IDEsXSkNCmBgYA0KDQpgYGB7cn0NCmNoYXJ0Ml93cm9uZyA8LSBjb3VudChkW3EyX3JpZ2h0ID09IDAgJiBxMl90cmVhdCA9PSAxLF0pDQpjaGFydDJfd3JvbmcgLyBjb3VudChkW3EyX3RyZWF0ID09IDFdKQ0KYGBgDQoNClNvIGNoYXJ0MSBpcyBhbG1vc3QgNXggaGFyZGVyIHRoYW4gY2hhcnQyLiBUaGlzIG1ha2VzIHNlbnNlOiBwaWUgY2hhcnRzIHN1Y2suIExldCdzIGxvb2sgYXQgc2ltcGxlIHN0dWZmOg0KDQoNCmBgYHtyfQ0Kc2ltcGxlX21vZGVsIDwtIGxtKGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgKyBxMl90cmVhdCwgZGF0YSA9IGQpDQpzdGFyZ2F6ZXIoc2ltcGxlX21vZGVsLA0KICAgICAgICAgIHNlID0gbGlzdChzcXJ0KGRpYWcodmNvdkhDKHNpbXBsZV9tb2RlbCkpKSksDQogICAgICAgICAgdHlwZSA9ICd0ZXh0JywNCiAgICAgICAgICBoZWFkZXIgPSBGKQ0KYGBgDQoNCnExIGlzIGRlZmluaXRlbHkgaGFyZGVyIGFzIGEgY2hhcnQuIHEyIGlzIGRlZmluaXRlbHkgZWFzaWVyIGFzIGEgY2hhcnQuDQoNCmBgYHtyfQ0KZXNsX21vZGVsIDwtIGxtKGFsbF9xX3JpZ2h0IH4gcTFfdHJlYXQgKyBxMl90cmVhdCArIGVzbF90cmVhdCArIGFzLmZhY3RvcihFU0wgPT0gIlllcyIpLCBkYXRhID0gZCkNCg0Kc3RhcmdhemVyKGVzbF9tb2RlbCwNCiAgICAgICAgICBzZSA9IGxpc3Qoc3FydChkaWFnKHZjb3ZIQyhlc2xfbW9kZWwpKSkpLA0KICAgICAgICAgIHR5cGUgPSAndGV4dCcsDQogICAgICAgICAgaGVhZGVyID0gRikNCmBgYA0KDQpRMSBpcyBoYXJkZXIgZm9yIHRyZWF0bWVudCwgUTIgaXMgbm90LiBUaGF0IG1ha2VzIHNlbnNlIGJlY2F1c2UgUGllIENoYXJ0cyB3aXRob3V0IGxhYmVscyBhcmUgYXdmdWwuIEFkZGluZyBpbiBFU0wgc2hvd3MgdGhhdCBFU0wgZG9lc24ndCBtYWtlIHRoZSB0cmVhdG1lbnQgYW55IGJldHRlciwgb3IgbWF5YmUgaXQncyB0cmVhdG1lbnQgZG9lc24ndCBtYWtlIEVTTCBhbnkgYmV0dGVyLiBCZWluZyBFU0wgZG9lcyBhY3R1YWxseSBpbXByb3ZlIHRoZSBvdmVyYWxsIHJlc3VsdHMgdGhvdWdoIGludGVyZXN0aW5nbHkuDQoNCkhvdyBkb2VzIEVTTCBhZmZlY3QgdGhlIHR3byBxdWVzdGlvbnMgc2VwYXJhdGVseT8gV2UnbGwgbG9vayBhdCBpbnRlcmFjdGlvbiBlZmZlY3RzOg0KDQpgYGB7cn0NCnExX2VzbF9tb2RlbCA8LSBsbShxMV9yaWdodCB+IHExX3RyZWF0ICogYXMuZmFjdG9yKEVTTCA9PSAnWWVzJyksIGRhdGEgPSBkKQ0KDQpxMl9lc2xfbW9kZWwgPC0gbG0ocTJfcmlnaHQgfiBxMl90cmVhdCAqIGFzLmZhY3RvcihFU0wgPT0gJ1llcycpLCBkYXRhID0gZCkNCg0Kc3RhcmdhemVyKHExX2VzbF9tb2RlbCwgcTJfZXNsX21vZGVsLA0KICAgICAgICAgICNzZSA9IGxpc3Qoc3FydChkaWFnKHZjb3ZIQyhxMV9lc2xfbW9kZWwpKSkpLA0KICAgICAgICAgIHR5cGUgPSAndGV4dCcsDQogICAgICAgICAgaGVhZGVyID0gRikNCmBgYA0KDQogTG9va3MgbGlrZSBRMSBpcyBqdXN0IGFzIGNvbmZ1c2luZyBmb3IgRVNMIGFzIG5vbi1FU0wsIGJ1dCBRMiBsb29rcyBtdWNoIHdvcnNlLg0KDQoNCmBgYHtyfQ0KZXNsX21vZGVsIDwtIGl2cmVnKGFsbF9xX3JpZ2h0IH4gIGFzLmZhY3RvcihFU0wgPT0gIlllcyIpLCBkYXRhID0gZCkNCmBgYA0KDQogDQpgYGB7cn0NCnByb3BvcnRpb25zX3RhYmxlID0gdGFibGUoZFtFU0w9PSJObyIsXSwgZFtFU0w9PSJZZXMiLF0pDQpjaGlzcS50ZXN0KHByb3BvcnRpb25zX3RhYmxlKQ0KYGBgDQogDQpMb29rcyBsaWtlIG91ciBFU0wgZm9sa3MgYXJlIHN0YXRpc3RpY2FsbHkgdGhlIHNhbWUgYXMgb3VyIG5vbi4gSG93IGFib3V0IG91ciBjaGFydCBzdHJ1Z2dsZXJzPw0KDQpgYGB7cn0NCnByb3BvcnRpb25zX3RhYmxlXzIgPSB0YWJsZShkW3ExX3RyZWF0ID09IDEgJiBxMV9yaWdodCA9PSAwLF0sIGRbcTJfdHJlYXQgPT0gMSAmIHEyX3JpZ2h0ID09IDAsXSkNCmNoaXNxLnRlc3QocHJvcG9ydGlvbnNfdGFibGVfMikNCmBgYA0KDQpBbHNvLCBkaWZmZXJlbnQuIFdlIG9ubHkgaGFkIG9uZSBwZXJzb24gYXR0cml0IHNvIHRoZXJlJ3Mgbm8gbmVlZCB0byBkbyBhIENBQ0Ugb3IgYXR0cml0aW9uIGNhbGN1bGF0aW9uLg==</div>
 
 
 

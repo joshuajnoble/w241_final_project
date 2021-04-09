@@ -37,27 +37,31 @@ The impetus for our study comes from a paper titled "Do Icon Arrays Help Reduce 
 
 ## Methods
 
-
+The original paper on which our study was based examined numerical ratios and icon arrays. In order to expand the test we wanted to test both a chart that required interpretation, an icon array which might require counting, and a numerical ratio which showed a vaccine efficacy. 
 
 ## Research Design
 
-Our experiment was conducted using the Berkeley XLab to recruit survey takers. Since we had a survey that did not involve any observation before the treatment or control randomization, the study was not a classical pre-test/post-test ROXO but rather a RXRXO Posttest Control Group design. We tested the candidates in a multi-factorial approach. Users were presented with several questions about the COVID-19 pandemic and children returning to classrooms. These questions were the same for all participants. Participants were then randomized into a control group which was shown a numerical ratio based question on vaccine efficacy and a  treatment group which was was shown a pie chart visualization which asked about vaccine efficacy. The rationale for using a pie chart is this: a pie chart is widely regardes as a particularly ineffective form of visualization. "Pie charts [along with other forms of area charts] do not provide efficient detection of geometric objects that convey information about differences of values." [(William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994]. Worse yet, we asked participants to compare between pie charts. In information visualization, this is famously frowned upon. Edward Tufte, the  “the only worse design than a pie chart is several of them, for then the viewer is asked to compare quantities located in spatial disarray both within and between pies” (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.) Our pie chart even lacked numbers and use ratios that were slightly more difficult to visually decode: 80%, 90%, 95%, and 97%. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with an interesting test for the inefficacy of numerical ratios. 
+Our experiment was conducted using the Berkeley XLab to recruit survey takers. Since we had a survey that did not involve any observation before the treatment or control randomization, the study was not a classical pre-test/post-test ROXO but rather a RXRXO Posttest Control Group design. We tested the candidates in a multi-factorial approach. Users were presented with several questions about the COVID-19 pandemic and children returning to classrooms. These questions were the same for all participants and were intended to obscure the actual purpose of our survey so that participants wouldn't immediately think of it as testing ratios or mathematical concepts. Participants were then randomized into a control group which was shown a numerical ratio based question on vaccine efficacy and a  treatment group which was was shown a pie chart visualization which asked about vaccine efficacy.
 
-![Shows a 97% efficacy.](3_97.png){width=50%}
-![Shows a 95% efficacy.](5_95.png){width=50%}
+The study design is shown here:
+
+![Study design.](images/roxo.png)
+
+The rationale for using a pie chart is this: a pie chart is widely regardes as a particularly ineffective form of visualization. "Pie charts [along with other forms of area charts] do not provide efficient detection of geometric objects that convey information about differences of values." [(William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994]. Worse yet, we asked participants to compare between pie charts. In information visualization, this is famously frowned upon. Edward Tufte, the  “the only worse design than a pie chart is several of them, for then the viewer is asked to compare quantities located in spatial disarray both within and between pies” (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.) Our pie chart even lacked numbers and use ratios that were slightly more difficult to visually decode: 80%, 90%, 95%, and 97%. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with an interesting test for the inefficacy of numerical ratios. 
+
+![Shows a 97% efficacy.](images/3_97.png){width=50%}
+![Shows a 95% efficacy.](images/5_95.png){width=50%}
 
 
 A second randomization was then employed to test numerical ratios of efficacy against icon arrays that represented vaccine efficacy. These icon arrays differ from the pie chart pairings in that they contain countable quantities of different colored icons and thus can be more precise than the charts. 
 
-![Shows a 98% efficacy.](array_1.png){width=50%}
+![Shows a 98% efficacy.](images/array_1.png){width=50%}
 
-![Shows a 90% efficacy.](array_2.png){width=50%}
+![Shows a 90% efficacy.](images/array_2.png){width=50%}
 
 The 'correct' answer to this second question is also significantly easier, it's always a yes. This allows us to get some visibility into people who may feel intimidated by numbers, e.g. the sentiment that "I'm bad at math" often reported by people which may lead them to skip over information presented numerically or to look for an alternative presentation.
 
-The study design is shown here:
-
-![Study design.](roxo.png)
 
 ## Analytic Plan
 
+The Berkeley XLab gathered not only answers to our survey but also demographic data. Of particualar interest to our team was the self-designated "ESL" response, which indicated whether the participants was a speaker of English as a second language.
