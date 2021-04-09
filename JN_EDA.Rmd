@@ -1,0 +1,54 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+
+install.packages ("purrr")
+```
+
+
+```{r}
+library(data.table)
+
+library(sandwich)
+library(lmtest)
+
+library(AER) 
+
+library (purrr)
+
+library(ggplot2) 
+library(patchwork)
+library(stargazer)
+library(dplyr)
+library(janitor)
+```
+
+```{r}
+d <- fread("241dataset.csv")
+```
+
+
+```{r}
+
+d[,q1_right := ifelse(Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right', 1, 0) ]
+
+d[,q1_treat := ifelse( Chart_Control1 == "" & Chart_Control1 == "", 1, 0) ]
+
+d[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
+
+d[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
+
+tabyl(d, q1_right, q2_right)
+```
+
+```{r}
+count(d[q1_right == 0 & (Chart_Control1 == 'Wrong' | Chart_Control2 == 'Wrong')])
+```
+
+```{r}
+count(d[q2_right == 0 & (Array_Treat1 == 'Wrong' | Array_Treat2 == 'Wrong' | Array_Treat3 == 'Wrong')])
+```
+
