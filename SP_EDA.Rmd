@@ -34,6 +34,7 @@ Simple EDA for demographics:
 #Gender
 d[,lapply(.SD, length), .SDcols="Gender", by="Gender"]
 ```
+
 ```{r}
 # Remove non-numeric answers in birthyear
 d$Birthyear <- gsub("[^0-9.-]", "", d$Birthyear)
@@ -41,7 +42,6 @@ d$Birthyear <- gsub("[^0-9.-]", "", d$Birthyear)
 d[, Birthyear := as.double(Birthyear)][Birthyear>=1000, Birthyear:=lapply(Birthyear, function(x){2021-x})]
 d[Birthyear<=1, Birthyear:=""]
 ```
-
 ```{r}
 # Mean age of Participants
 d[, mean(Birthyear, na.rm=TRUE)]
