@@ -26,6 +26,13 @@ library(janitor)
 
 ```{r}
 d_j <- fread("dataset_tmp.csv")
+
+# Remove non-numeric answers in birthyear
+d_j$Birthyear <- gsub("[^0-9.-]", "", d_j$Birthyear)
+# For all birthyears that aren't years, subtract year from 2021 to calculate age
+d_j[, Birthyear := as.double(Birthyear)][Birthyear>=1000, Birthyear:=lapply(Birthyear, function(x){2021-x})]
+d_j[Birthyear<=1, Birthyear:=""]
+
 ```
 
 
@@ -103,6 +110,37 @@ q2_esl_model <- lm(q2_right ~ q2_treat * as.factor(ESL == 'Yes'), data = d_j)
 
 stargazer(q1_esl_model, q2_esl_model,
           #se = list(sqrt(diag(vcovHC(q1_esl_model)))),
+          type = 'text',
+          header = F)
+```
+
+
+```{r}
+q1_treat_all <- lm(q1_right ~ q1_treat + as.factor(Edu_Level), data = d_j)
+q2_treat_all <- lm(q2_right ~ q2_treat + as.factor(Edu_Level), data = d_j)
+
+stargazer(q1_treat_all, q2_treat_all,
+          #se = list(sqrt(diag(vcovHC(q1_esl_model)))),
+          type = 'text',
+          header = F)
+```
+
+
+```{r}
+all_q_age <- lm(all_q_right ~ Birthyear, data = d_j)
+
+stargazer(all_q_age,
+          se = list(sqrt(diag(vcovHC(all_q_age)))),
+          type = 'text',
+          header = F)
+```
+
+
+```{r}
+all_q_race <- lm(all_q_right ~ as.factor(Race), data = d_j)
+
+stargazer(all_q_race,
+          se = list(sqrt(diag(vcovHC(all_q_race)))),
           type = 'text',
           header = F)
 ```

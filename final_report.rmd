@@ -18,7 +18,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Reading and understanding ratios, particularly when presented numerically, can be a taxing task even for people who claim to be at ease with mathematics. The entire field of data visualization has been built around the premise that humans count objects and see ratios better when presented with graphical representations of those quantities rather than numerical ones. We wanted to test whether this was true in a very specific context reading ratios. Many ratios seem quite easy to read and understand ½, 25%, ‘2 out of 3’, but many others are more difficult to read and understand and more difficult to process the significance, particularly when that significance represents probability or efficacy. The odds on the lottery don’t dissuade millions of people from buying tickets; random sampling is foreign enough that many companies still have the principles of it as a brain-teaser question in job interviews; and as we’ve seen in the past six months, vaccine efficacy is devilishly difficult to understand. 
 
-
 Increased emphasis on patient-centered decision making and disease prevention has shifted the responsibility of decision making to patients.
 
 ## Background
