@@ -32,7 +32,7 @@ Based upon the above, our causal research question is:
 
 **Are icon arrays (or other visual aids) more effective than text-based numerical ratios for interpretation of numerical ratios?**
 
-We hypothesize, based upon the aforementioned evidence that they are. More specifically, that a group presented with icon arrays correctly interprets the numerical ratios presented in them compared with a group presented with only text or numbers.
+We hypothesize, based upon the aforementioned evidence that they are. More specifically, that a group presented with icon arrays correctly interprets the numerical ratios presented in them at a greater rate, compared to a group presented with only text or numbers.
 
 ## Methods
 
