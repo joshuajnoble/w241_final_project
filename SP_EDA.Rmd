@@ -1,0 +1,81 @@
+---
+title: "SP EDA"
+output: html_notebook
+---
+
+```{r}
+library(data.table)
+
+library(sandwich)
+library(lmtest)
+
+library(AER) 
+
+library (purrr)
+
+library(ggplot2) 
+library(patchwork)
+library(stargazer)
+library(dplyr)
+library(janitor)
+```
+
+```{r}
+d <- data.table(read.csv("dataset_tmp.csv"))
+```
+
+```{r}
+colnames(d)
+```
+
+```{r}
+d[, "Chart_Control_Merged" := paste0(Chart_Control1, Chart_Control2)]
+d[, "Chart_Treat_Merged" := paste0(Chart_Treat1, Chart_Treat2)]
+```
+
+```{r}
+d[, "Array_Control_Merged" := paste0(Array_Control1, Array_Control2, Array_Control3)]
+d[, "Array_Treat_Merged" := paste0(Array_Treat1, Array_Treat2, Array_Treat3)]
+```
+
+```{r}
+d[,lapply(.SD, length), .SDcols=("Chart_Control_Merged"=="Right" & "Chart_Control_Merged"=="Wrong")]
+d[,lapply(.SD, length), .SDcols="Chart_Treat_Merged", by="Chart_Treat_Merged"]
+```
+```{r}
+#Count number of responses for the chart arm
+d[(Chart_Control_Merged!=""), .N]
+d[(Chart_Treat_Merged!=""), .N]
+```
+```{r}
+# No. of right and wrong responses in chart arm
+d[(Chart_Control_Merged!=""), .N, by=Chart_Control_Merged]
+d[(Chart_Treat_Merged!=""), .N, by=Chart_Treat_Merged]
+```
+
+```{r}
+# Percentage correct
+#Control % right:
+d[(Chart_Control_Merged=="Right"), .N]/d[(Chart_Control_Merged!=""), .N]*100
+#Treat % right:
+d[(Chart_Treat_Merged=="Right"), .N]/d[(Chart_Treat_Merged!=""), .N]*100
+```
+
+```{r}
+# Count number of responses for the icon arrary arm
+d[(Array_Control_Merged!=""), .N]
+d[(Array_Treat_Merged!=""), .N]
+```
+
+```{r}
+# No. of right and wrong responses in array arm
+d[(Array_Control_Merged!=""), .N, by=Array_Control_Merged]
+d[(Array_Treat_Merged!=""), .N, by=Array_Treat_Merged]
+```
+```{r}
+# Percentage correct
+#Control % right:
+d[(Array_Control_Merged=="Right"), .N]/d[(Array_Control_Merged!=""), .N]*100
+#Treat % right:
+d[(Array_Treat_Merged=="Right"), .N]/d[(Array_Treat_Merged!=""), .N]*100
+```
