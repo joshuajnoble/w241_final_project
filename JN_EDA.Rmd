@@ -167,3 +167,36 @@ chisq.test(treated_groups)
 ```
 
 Also, different.
+
+```{r}
+pilot <- fread("pilot_data.csv")
+
+pilot[,q1_right := ifelse((Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right'), 1, 0) ]
+
+pilot[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
+
+pilot[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
+
+pilot[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
+
+pilot[,all_q_right := q1_right + q2_right ]
+
+tabyl(pilot, q1_right, q2_right)
+```
+
+```{r}
+p_chart_treat_right <- nrow(pilot[q1_right == 1 & q1_treat == 1,]) / nrow(pilot[q1_treat == 1,]) 
+p_chart_control_right <- nrow(pilot[q1_right == 1 & q1_treat == 0,]) / nrow(pilot[q1_treat == 0,]) 
+
+p_chart_treat_right
+p_chart_control_right
+```
+
+```{r}
+p_array_treat_right <- nrow(pilot[q2_right == 1 & q2_treat == 1,]) / nrow(pilot[q2_treat == 1,])
+p_array_control_right <- nrow(pilot[q2_right == 1 & q2_treat == 0,]) / nrow(pilot[q2_treat == 0,])
+
+p_array_treat_right
+p_array_control_right
+```
+

@@ -1,4 +1,4 @@
-Date,Open_Elem,How_Many_Days,Capacity,Vacc_Effec,Control_Chart1,Control_Chart2,Treatment_Chart1,Treatment_Chart2,Control_Array1,Control_Array2,Control_Array3,Treatment_Array1,Treatment_Array2,Treatment_Array3
+Date,Open_Elem,How_Many_Days,Capacity,Vacc_Effec,Chart_Control1,Chart_Control2,Chart_Treat1,Chart_Treat2,Array_Control1,Array_Control2,Array_Control3,Array_Treat1,Array_Treat2,Array_Treat3
 "Mar 18, 2021 2:10 PM",Yes,Less than 5 weekdays,50%,Very effective: 90%,,,,Wrong,,,,,,Right
 "Mar 18, 2021 2:07 PM",Yes,Less than 5 weekdays,50%,Very effective: 90%,,,Right,,,Right,,,,
 "Mar 25, 2021 3:56 PM",Yes,Monday - Friday,25%,Moderately effective: 85%,,Wrong,,,,,,,,Right

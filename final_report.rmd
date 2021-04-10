@@ -64,3 +64,41 @@ The 'correct' answer to this second question is also significantly easier, it's 
 ## Analytic Plan
 
 The Berkeley XLab gathered not only answers to our survey but also demographic data. Of particualar interest to our team was the self-designated "ESL" response, which indicated whether the participants was a speaker of English as a second language.
+
+## Pilot Data
+
+We ran a pilot study using Qualitrics which received 19 valid responses. We'll load and analyze our Pilot Data:
+
+```{r}
+pilot <- fread("pilot_data.csv")
+
+pilot[,q1_right := ifelse((Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right'), 1, 0) ]
+pilot[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
+pilot[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
+pilot[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
+pilot[,all_q_right := q1_right + q2_right ]
+
+tabyl(pilot, q1_right, q2_right)
+```
+
+We can assess the users accuracy with each treatment by evaluating how often they correctly answered  the questions in the pilot:
+
+```{r}
+p_chart_treat_right <- nrow(pilot[q1_right == 1 & q1_treat == 1,]) / nrow(pilot[q1_treat == 1,]) 
+p_chart_control_right <- nrow(pilot[q1_right == 1 & q1_treat == 0,]) / nrow(pilot[q1_treat == 0,]) 
+```
+
+In the chart treatment group, users answered correctly `r p_chart_treat_right`% of the time, while in the control they answered `r p_chart_control_right`.
+
+
+```{r}
+p_array_treat_right <- nrow(pilot[q2_right == 1 & q2_treat == 1,]) / nrow(pilot[q2_treat == 1,])
+p_array_control_right <- nrow(pilot[q2_right == 1 & q2_treat == 0,]) / nrow(pilot[q2_treat == 0,])
+
+p_array_treat_right
+p_array_control_right
+```
+
+In the chart treatment group, users answered correctly `r p_array_treat_right`% of the time, while in the control they answered `r p_array_control_right`.
+
+The pilot study was not large enough to provide reliable sample sizes but it did provide confirmation that our survey itself was working as intended.
