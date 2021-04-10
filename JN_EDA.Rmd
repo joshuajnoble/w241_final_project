@@ -107,8 +107,7 @@ stargazer(q1_esl_model, q2_esl_model,
           header = F)
 ```
 
- Looks like Q1 is just as confusing for ESL as non-ESL, but Q2 looks much worse.
-
+No difference really. Are the groups the same?
  
 ```{r}
 proportions_table = table(d_j[ESL=="No",], d_j[ESL=="Yes",])
