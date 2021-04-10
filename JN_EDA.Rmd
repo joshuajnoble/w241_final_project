@@ -101,7 +101,7 @@ stargazer(q1_esl_model, q2_esl_model,
 
 
 ```{r}
-esl_model <- ivreg(all_q_right ~  as.factor(ESL == "Yes"), data = d)
+i_esl_model <- lm(all_q_right ~ I(q1_treat + q2_treat + as.factor(ESL == "Yes")), data = d)
 ```
 
  
