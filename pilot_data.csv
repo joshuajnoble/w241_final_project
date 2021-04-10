@@ -1,0 +1,19 @@
+Date,Open_Elem,How_Many_Days,Capacity,Vacc_Effec,Control_Chart1,Control_Chart2,Treatment_Chart1,Treatment_Chart2,Control_Array1,Control_Array2,Control_Array3,Treatment_Array1,Treatment_Array2,Treatment_Array3
+"Mar 18, 2021 2:10 PM",Yes,Less than 5 weekdays,50%,Very effective: 90%,,,,Wrong,,,,,,Right
+"Mar 18, 2021 2:07 PM",Yes,Less than 5 weekdays,50%,Very effective: 90%,,,Right,,,Right,,,,
+"Mar 25, 2021 3:56 PM",Yes,Monday - Friday,25%,Moderately effective: 85%,,Wrong,,,,,,,,Right
+"Mar 24, 2021 12:21 PM",No,Less than 5 weekdays,25%,Moderately effective: 85%,,,Right,,,,Right,,,
+"Mar 23, 2021 9:37 PM",No,Less than 5 weekdays,50%,Very effective: 90%,Wrong,,,,Right,,,,,
+"Mar 23, 2021 9:17 PM",No,None,25%,Moderately effective: 85%,,,,Right,,Right,,,,
+"Mar 23, 2021 9:06 PM",No,None,25%,Very effective: 90%,,,Right,,Right,,,,,
+"Mar 23, 2021 8:51 PM",Yes,Less than 5 weekdays,50%,Very effective: 90%,,Right,,,,,,,,Wrong
+"Mar 23, 2021 8:28 PM",No,None,25%,Very effective: 90%,Right,,,,,,,Right,,
+"Mar 23, 2021 8:18 PM",Yes,Less than 5 weekdays,75%,Moderately effective: 85%,,,,Right,,,Right,,,
+"Mar 21, 2021 8:50 PM",Yes,Monday - Friday,75%,Very effective: 90%,,,Right,,,,,,,Right
+"Mar 21, 2021 2:37 PM",Yes,Monday - Friday,50%,Moderately effective: 85%,,,Right,,,,,Right,,
+"Mar 21, 2021 10:13 AM",No,None,100%,Moderately effective: 85%,,,,Wrong,,,,,Right,
+"Mar 21, 2021 1:52 AM",Yes,None,50%,Very effective: 90%,,,Right,,,Right,,,,
+"Mar 21, 2021 12:50 AM",No,None,50%,Moderately effective: 85%,,,,,,,,,,
+"Mar 21, 2021 12:01 AM",No,None,25%,Moderately effective: 85%,,,,Right,Wrong,,,,,
+"Mar 20, 2021 11:21 PM",Yes,Less than 5 weekdays,75%,Moderately effective: 85%,,,,Right,Right,,,,,
+"Mar 19, 2021 7:58 PM",No,Less than 5 weekdays,25%,Very effective: 90%,,Right,,,,Wrong,,,,
