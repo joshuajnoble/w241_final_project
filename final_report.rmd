@@ -16,50 +16,50 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Reading and understanding ratios, particularly when presented numerically, can be a taxing task even for people who claim to be at ease with mathematics. The entire field of data visualization has been built around the premise that humans count objects and see ratios better when presented with graphical representations of those quantities rather than numerical ones. We wanted to test whether this was true in a very specific context reading ratios. Many ratios seem quite easy to read and understand ½, 25%, ‘2 out of 3’, but many others are more difficult to read and understand and more difficult to process the significance, particularly when that significance represents probability or efficacy. The odds on the lottery don’t dissuade millions of people from buying tickets; random sampling is foreign enough that many companies still have the principles of it as a brain-teaser question in job interviews; and as we’ve seen in the past six months, vaccine efficacy is devilishly difficult to understand. 
+Reading and understanding ratios, particularly when presented numerically, can be a taxing task even for people who claim to be at ease with mathematics **Reference 1**. The entire field of data visualization has been built around the premise that humans count objects and see ratios better when presented with graphical representations of those quantities rather than numerical ones. We wanted to test whether this was true in a very specific context reading ratios. Many ratios seem quite easy to read and understand e.g. ½, 25%, ‘2 out of 3’, but many others are more difficult to interpret. Consequently, it is more difficult to process their context, particularly when related to probability or efficacy. There are numerous examples of this effect in everyday life: Millions of people buy lottery tickets despite the odds; random sampling is foreign enough that companies still use it as a brain-teaser question in job interviews; and as we’ve seen in the past six months, vaccine efficacy is rather difficult to understand.
 
-Increased emphasis on patient-centered decision making and disease prevention has shifted the responsibility of decision making to patients.
-
-## Background
+## Study Rationale and Hypothesis
 
 Vaccine efficacy/effectiveness (VE) is measured by calculating the risk of disease among vaccinated and unvaccinated persons and determining the percentage reduction in risk of disease among vaccinated persons relative to unvaccinated persons. The greater the percentage reduction of illness in the vaccinated group, the greater the vaccine efficacy/effectiveness. The basic formula is written as:
 
 Risk among unvaccinated group − risk among vaccinated group / Risk among unvaccinated group
 
-This is how efficacy rates for vaccines are communicated but it's unclear exactly how well those understood. Certainly the COVID-19 pandemic has provided us ample opportunity to witness how these efficacy results can be confusing.
+This is how efficacy rates for vaccines are communicated but it's unclear exactly how well this is understood. Certainly the COVID-19 pandemic has provided us ample opportunity to witness how these efficacy results can be confusing.
 
-The impetus for our study comes from a paper titled "Do Icon Arrays Help Reduce Denominator Neglect?" by Rocio Garcia-Retamero, Mirta Galesic, and Gerd Gigerenzer.
+According to Garcia-Retamero et al **Reference 2**, denominator neglect is the focus on the number of times a target event has happened (e.g. the number of treated and nontreated patients who die) without considering the overall number of opportunities for it to happen (e.g. the overall number of treated and nontreated patients). In their 2 studies, the authors' addressed the effect of denominator neglect in problems involving treatment risk reduction where samples of treated and non-treated patients and the relative risk reduction were of different sizes. They also tested whether using icon arrays helped people take these different sample sizes into account. 
 
-"Denominator neglect is the focus on the number of times a target event has happened (e.g., the number of treated and nontreated patients who die) without considering the overall number of opportunities for it to happen (e.g., the overall number of treated and nontreated patients). In 2 studies, we addressed the effect of denominator neglect in problems involving treatment risk reduction where samples of treated and non-treated patients and the relative risk reduction were of different sizes. We also tested whether using icon arrays helps people take these different sample sizes into account."
+Based upon the above, our causal research question is:
 
-[Do Icon Arrays Help Reduce Denominator Neglect?]
+**Are icon arrays (or other visual aids) more effective than text-based numerical ratios for interpretation of numerical ratios?**
+
+We hypothesize, based upon the aforementioned evidence that they are. More specifically, that a group presented with icon arrays correctly interprets the numerical ratios presented in them compared with a group presented with only text or numbers.
 
 ## Methods
 
-The original paper on which our study was based examined numerical ratios and icon arrays. In order to expand the test we wanted to test both a chart that required interpretation, an icon array which might require counting, and a numerical ratio which showed a vaccine efficacy. 
+The original paper on which our study was based examined numerical ratios and icon arrays. In order to expand the test we wanted to test both a chart that required interpretation, an icon array which might require counting, and a numerical ratio which showed a vaccine efficacy. Our experiment was conducted using the Berkeley XLab to recruit survey takers.
+
 
 ## Research Design
 
-Our experiment was conducted using the Berkeley XLab to recruit survey takers. Since we had a survey that did not involve any observation before the treatment or control randomization, the study was not a classical pre-test/post-test ROXO but rather a RXRXO Posttest Control Group design. We tested the candidates in a multi-factorial approach. Users were presented with several questions about the COVID-19 pandemic and children returning to classrooms. These questions were the same for all participants and were intended to obscure the actual purpose of our survey so that participants wouldn't immediately think of it as testing ratios or mathematical concepts. Participants were then randomized into a control group which was shown a numerical ratio based question on vaccine efficacy and a  treatment group which was was shown a pie chart visualization which asked about vaccine efficacy.
+We adopted an alternative approach to the classical pre-test/post-test ROXO and instead used a RXRXO post-test control group design. Our survey did not involve any observation prior to treatment or control randomization. The subjects were tested via a multi-factorial approach: All users (i.e. both control and treatment subjects) were first presented with several "stem" questions about the COVID-19 pandemic and children returning to classrooms. These questions were the same for all participants and were intended to obscure the actual purpose of our survey so that participants wouldn't immediately think of it as testing ratios or mathematical concepts. Participants were subsequently randomized into either of two arms (chart-treatment or icon array-treatment). Within each arm, subjects would then be assigned randomly (using Qualtrics' survey flow randomization algorithm) into either control or treatment groups. The control groups in both arms would be presented with a text-only question pertaining to vaccine efficacy, and containing a text-description of a numerical ratio. The treatment groups were presented with either a pie-chart (for those in the chart-treatment arm) or an icon array diagram (for those in the icon array-treatment arm) (**Figure 1.**):
 
-The study design is shown here:
+![Figure 1.](images/roxo.png)
+**Figure 1** A diagram demonstrating the overall RXRXO study design.
 
-![Study design.](images/roxo.png)
+Pie charts are a particularly ineffective form of visualization **Reference 3**. Our method involved participants differentiating between pie charts. In information visualization, when presented with several pie charts, subjects often have difficult interpreting or differentiating between them **Reference 4**. The pie charts we utilized lacked numbers and used ratios that were deliberately intended to be difficult to visually decode: 80%, 90%, 95%, and 97%. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with alternative evidence to test the hypothesis that visual aids were still more effective than either text or numerical ratios **Figure 2**
 
-The rationale for using a pie chart is this: a pie chart is widely regardes as a particularly ineffective form of visualization. "Pie charts [along with other forms of area charts] do not provide efficient detection of geometric objects that convey information about differences of values." [(William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994]. Worse yet, we asked participants to compare between pie charts. In information visualization, this is famously frowned upon. Edward Tufte, the  “the only worse design than a pie chart is several of them, for then the viewer is asked to compare quantities located in spatial disarray both within and between pies” (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.) Our pie chart even lacked numbers and use ratios that were slightly more difficult to visually decode: 80%, 90%, 95%, and 97%. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with an interesting test for the inefficacy of numerical ratios. 
+![2a.](images/3_97.png){width=50%}
+![2b.](images/5_95.png){width=50%}
+**Figure 2** a. A pie chart representing 97% efficacy, b. A pie chart representing 85% efficacy.
 
-![Shows a 97% efficacy.](images/3_97.png){width=50%}
-![Shows a 95% efficacy.](images/5_95.png){width=50%}
+For the icon array arm, icon arrays were employed to test numerical ratios of efficacy against icon arrays that represented vaccine efficacy. These icon arrays differ from the pie chart pairings in that they contain countable quantities of different colored icons and thus can be more precise than the charts **Figure 3**. 
 
+![3a.](images/array_1.png){width=50%}
 
-A second randomization was then employed to test numerical ratios of efficacy against icon arrays that represented vaccine efficacy. These icon arrays differ from the pie chart pairings in that they contain countable quantities of different colored icons and thus can be more precise than the charts. 
-
-![Shows a 98% efficacy.](images/array_1.png){width=50%}
-
-![Shows a 90% efficacy.](images/array_2.png){width=50%}
+![3b.](images/array_2.png){width=50%}
+**Figure 3** a. Icon array representing the treatment group of a hypothetical vaccine trial, whereby 4 out of 200 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. b. Icon array representing the control group of a hypothetical vaccine trial, whereby 10 out of 100 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. Altogether, vaccine efficacy is 80%.
 
 The 'correct' answer to this second question is also significantly easier, it's always a yes. This allows us to get some visibility into people who may feel intimidated by numbers, e.g. the sentiment that "I'm bad at math" often reported by people which may lead them to skip over information presented numerically or to look for an alternative presentation.
-
 
 ## Analytic Plan
 
@@ -102,3 +102,11 @@ p_array_control_right
 In the chart treatment group, users answered correctly `r p_array_treat_right`% of the time, while in the control they answered `r p_array_control_right`.
 
 The pilot study was not large enough to provide reliable sample sizes but it did provide confirmation that our survey itself was working as intended.
+
+## References
+
+1. **Insert reference from intro paragraph here**
+2. [Do Icon Arrays Help Reduce Denominator Neglect?]
+3. [(William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994]
+4. (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.)
+
