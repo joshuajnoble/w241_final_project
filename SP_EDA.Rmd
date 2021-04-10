@@ -18,6 +18,7 @@ library(patchwork)
 library(stargazer)
 library(dplyr)
 library(janitor)
+library(stringr)
 ```
 
 ```{r}
@@ -26,6 +27,51 @@ d <- data.table(read.csv("dataset_tmp.csv"))
 
 ```{r}
 colnames(d)
+```
+
+Simple EDA for demographics:
+```{r}
+#Gender
+d[,lapply(.SD, length), .SDcols="Gender", by="Gender"]
+```
+```{r}
+# Remove non-numeric answers in birthyear
+d$Birthyear <- gsub("[^0-9.-]", "", d$Birthyear)
+# For all birthyears that aren't years, subtract year from 2021 to calculate age
+d[, Birthyear := as.double(Birthyear)][Birthyear>=1000, Birthyear:=lapply(Birthyear, function(x){2021-x})]
+d[Birthyear<=1, Birthyear:=""]
+```
+
+```{r}
+# Mean age of Participants
+d[, mean(Birthyear, na.rm=TRUE)]
+
+# Mean age of Participants by Gender
+d[, mean(Birthyear, na.rm=TRUE), by=Gender]
+```
+
+```{r}
+#Participant educational level
+d[, lapply(.SD, length), .SDcols="Edu_Level", by="Edu_Level"]
+```
+
+```{r}
+#Should elementary schools be open: Opinions
+d[, lapply(.SD, length), .SDcols="Open_Elem", by="Open_Elem"]
+```
+
+```{r}
+#How many days?
+d[, lapply(.SD, length), .SDcols="How_Many_Days", by="How_Many_Days"]
+```
+```{r}
+#What capacity?
+d[, lapply(.SD, length), .SDcols="Capacity", by="Capacity"]
+```
+
+```{r}
+#What % Vacc effectiveness
+d[, lapply(.SD, length), .SDcols="Vacc_Effec", by="Vacc_Effec"]
 ```
 
 ```{r}
@@ -39,9 +85,10 @@ d[, "Array_Treat_Merged" := paste0(Array_Treat1, Array_Treat2, Array_Treat3)]
 ```
 
 ```{r}
-d[,lapply(.SD, length), .SDcols=("Chart_Control_Merged"=="Right" & "Chart_Control_Merged"=="Wrong")]
+d[,lapply(.SD, length), .SDcols="Chart_Control_Merged", by="Chart_Control_Merged"]
 d[,lapply(.SD, length), .SDcols="Chart_Treat_Merged", by="Chart_Treat_Merged"]
 ```
+
 ```{r}
 #Count number of responses for the chart arm
 d[(Chart_Control_Merged!=""), .N]
@@ -55,10 +102,19 @@ d[(Chart_Treat_Merged!=""), .N, by=Chart_Treat_Merged]
 
 ```{r}
 # Percentage correct
+chart_control_right <- d[(Chart_Control_Merged=="Right"), .N]
+chart_control_wrong <- d[(Chart_Control_Merged=="Wrong"), .N]
+chart_treat_right <- d[(Chart_Treat_Merged=="Right"), .N]
+chart_treat_wrong <- d[(Chart_Treat_Merged=="Wrong"), .N]
 #Control % right:
-d[(Chart_Control_Merged=="Right"), .N]/d[(Chart_Control_Merged!=""), .N]*100
+(chart_control_right/(chart_control_right+chart_control_wrong))*100
 #Treat % right:
-d[(Chart_Treat_Merged=="Right"), .N]/d[(Chart_Treat_Merged!=""), .N]*100
+(chart_treat_right/(chart_treat_right+chart_treat_wrong))*100
+```
+```{r}
+chart = matrix(c(chart_treat_right,chart_control_right,chart_treat_wrong,chart_control_wrong),ncol=2)
+chart
+chisq.test(chart, correct=F)
 ```
 
 ```{r}
@@ -74,8 +130,18 @@ d[(Array_Treat_Merged!=""), .N, by=Array_Treat_Merged]
 ```
 ```{r}
 # Percentage correct
+array_control_right <- d[(Array_Control_Merged=="Right"), .N]
+array_control_wrong <- d[(Array_Control_Merged=="Wrong"), .N]
+array_treat_right <- d[(Array_Treat_Merged=="Right"), .N]
+array_treat_wrong <- d[(Array_Treat_Merged=="Wrong"), .N]
 #Control % right:
-d[(Array_Control_Merged=="Right"), .N]/d[(Array_Control_Merged!=""), .N]*100
+(array_control_right/(array_control_right+array_control_wrong))*100
 #Treat % right:
-d[(Array_Treat_Merged=="Right"), .N]/d[(Array_Treat_Merged!=""), .N]*100
+(array_treat_right/(array_treat_right+array_treat_wrong))*100
+```
+
+```{r}
+arr = matrix(c(array_treat_right,array_control_right,array_treat_wrong,array_control_wrong),ncol=2)
+arr
+chisq.test(arr, correct=F)
 ```

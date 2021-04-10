@@ -24,8 +24,6 @@ d <- data.frame(read.csv("final_omnibus.csv"))
 d <- d[d$DistributionChannel != "preview",]
 ```
 
-
-
 ```{r}
 # Select relevant columns
 d2 <- d %>% select(StartDate, EndDate, Progress, Finished, Q2.1, Q2.2, Q2.3, Q2.4, Q2.6, Q2.7, Q2.8, Q2.11, Q2.12, Q2.13, Q2.14, Q2.15,
@@ -76,6 +74,26 @@ d2$Array_Control3 <- recode(d2$Array_Control3, "Yes" = "Right", "No" = "Wrong")
 d2$Array_Treat1 <- recode(d2$Array_Treat1, "Yes" = "Right", "No" = "Wrong")
 d2$Array_Treat2 <- recode(d2$Array_Treat2, "Yes" = "Right", "No" = "Wrong")
 d2$Array_Treat3 <- recode(d2$Array_Treat3, "Yes" = "Right", "No" = "Wrong")
+```
+
+```{r}
+# Delete all columns with progress < 100
+d2 <- d2[d2$Progress ==100,]
+```
+
+```{r}
+# Reset index
+row.names(d2) <- NULL
+```
+
+```{r}
+# Remove the rows that didn't answer anything
+d2 <- d2[-c(50, 52, 53, 54, 55, 70, 71, 72, 73),]
+```
+
+```{r}
+# Reset index
+row.names(d2) <- NULL
 ```
 
 ```{r}
