@@ -59,11 +59,17 @@ For the icon array arm, icon arrays were employed to test numerical ratios of ef
 ![3b.](images/array_2.png){width=50%}
 **Figure 3** a. Icon array representing the treatment group of a hypothetical vaccine trial, whereby 4 out of 200 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. b. Icon array representing the control group of a hypothetical vaccine trial, whereby 10 out of 100 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. Altogether, vaccine efficacy is 80%.
 
-The 'correct' answer to this second question is also significantly easier, it's always a yes. This allows us to get some visibility into people who may feel intimidated by numbers, e.g. the sentiment that "I'm bad at math" often reported by people which may lead them to skip over information presented numerically or to look for an alternative presentation.
+The 'correct' answer to the question presented to the icon array subjects is also significantly easier to interpret compared to those in the chart arm. The correct answer was always 'yes', i.e. the vaccine was efficacious at the 80% level. This permitted insight into whether people may have felt intimidated by numbers, e.g. confirming the sentiment of "I'm bad at math" which is often reported among lay subjects.
+
+## Confounding Variables
+
+In addition to the study-specific data, we also acquired a range of demographic data of participants. Numerous factors may affect the responses to our questions, namely how well subjects were able to understand them. We therefore included self-designated subject age, English as a second language (ESL) and education level as potential control variables. 
 
 ## Analytic Plan
 
-The Berkeley XLab gathered not only answers to our survey but also demographic data. Of particualar interest to our team was the self-designated "ESL" response, which indicated whether the participants was a speaker of English as a second language.
+> 1. Descriptive statistics
+> 2. Group-based Statistical Tests (Chi-Squared)
+> 3. Regression Analysis with and without potential control features. 
 
 ## Pilot Data
 
