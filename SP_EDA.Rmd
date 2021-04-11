@@ -55,8 +55,6 @@ b <- d[, lapply(.SD, mean, na.rm=TRUE), .SDcols="Birthyear", by="Edu_Level"]
 c <- d[(ESL=="Yes"), .N, by=Edu_Level]
 e <- d[, lapply(.SD, length), .SDcols="ESL", by=Edu_Level]
 
-
-
 demo <- data.table("Educational Level"=a$Edu_Level, "Count"=a$N, "%Total"=round((a$N/sum(a$N))*100, 1), "Mean Age"=round(b$Birthyear, 1), "%ESL"=round((c$N/e$ESL)*100, 1))
 png("demographics.png", height = 2,width = 7,units = "in", res = 72)
 p<-tableGrob(demo)
@@ -67,18 +65,10 @@ dev.off()
 ```{r}
 #Should elementary schools be open: Opinions
 d[, lapply(.SD, length), .SDcols="Open_Elem", by="Open_Elem"]
-```
-
-```{r}
 #How many days?
 d[, lapply(.SD, length), .SDcols="How_Many_Days", by="How_Many_Days"]
-```
-```{r}
 #What capacity?
 d[, lapply(.SD, length), .SDcols="Capacity", by="Capacity"]
-```
-
-```{r}
 #What % Vacc effectiveness
 d[, lapply(.SD, length), .SDcols="Vacc_Effec", by="Vacc_Effec"]
 ```
@@ -121,9 +111,17 @@ chart_treat_wrong <- d[(Chart_Treat_Merged=="Wrong"), .N]
 (chart_treat_right/(chart_treat_right+chart_treat_wrong))*100
 ```
 ```{r}
-chart = matrix(c(chart_treat_right,chart_control_right,chart_treat_wrong,chart_control_wrong),ncol=2)
-chart
+chart = matrix(c(chart_control_right,chart_treat_right,chart_control_wrong,chart_treat_wrong),ncol=2)
 chisq.test(chart, correct=F)
+
+chart <- data.frame(chart)
+rownames(chart) <- c("Control", "Treat")
+colnames(chart) <- c("Right", "Wrong")
+
+png("images/charts.png", height = 2, width = 2,units = "in", res = 72)
+p<-tableGrob(chart)
+grid.arrange(p)
+dev.off()
 ```
 
 ```{r}
@@ -150,7 +148,16 @@ array_treat_wrong <- d[(Array_Treat_Merged=="Wrong"), .N]
 ```
 
 ```{r}
-arr = matrix(c(array_treat_right,array_control_right,array_treat_wrong,array_control_wrong),ncol=2)
-arr
+arr = matrix(c(array_control_right,array_treat_right,array_control_wrong,array_treat_wrong),ncol=2)
 chisq.test(arr, correct=F)
+
+array <- data.frame(arr)
+rownames(array) <- c("Control", "Treat")
+colnames(array) <- c("Right", "Wrong")
+array
+```
+
+
+```{r}
+
 ```

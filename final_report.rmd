@@ -100,7 +100,6 @@ p_chart_control_right <- nrow(pilot[q1_right == 1 & q1_treat == 0,]) / nrow(pilo
 
 In the chart treatment group, users answered correctly `r p_chart_treat_right`% of the time, while in the control they answered `r p_chart_control_right`.
 
-
 ```{r}
 p_array_treat_right <- nrow(pilot[q2_right == 1 & q2_treat == 1,]) / nrow(pilot[q2_treat == 1,])
 p_array_control_right <- nrow(pilot[q2_right == 1 & q2_treat == 0,]) / nrow(pilot[q2_treat == 0,])
@@ -126,9 +125,17 @@ Regarding relevant demographics, participant age ranged from 18 to 54, with a me
 
 ![Table 1.](images/demographics.png) 
 
-Approximately half of the respondents had completed some college (likely undergraduate students), a quarter had completed their undergraduate studies, while only 8% progressed onto further education. 16% of respondents had no college. Interestingly, the majority of respondents in all educational groups were ESL students, with almost 4/5 of postgraduate respondents reporting ESL status. 
+Approximately half of the respondents had completed some college (likely undergraduate students), a quarter had completed their undergraduate studies, while only 8% progressed onto further education. 16% of respondents had no college. Interestingly, the majority of respondents in all educational groups were ESL students, with over 4/5 of postgraduate respondents reporting ESL status. 
 
+### Results
 
+**Table 2.** summarizes the responses received for the first set of questions, where the subjects were exposed to either the text or the pie chart. 83.5% of those in the control answered the question correctly, while only 68.9% in the treatment did. 
+
+![Table 2.](images/chart_matrix.png) 
+
+**Table 3.** summarizes the responses received for the second set of questions, where the subjects were exposed to either the text or the icon array. 84.4% of those in the control answered the question correctly, while 93.8% in the treatment did.
+
+![Table 3.](images/array_matrix.png)
 
 ## References
 
