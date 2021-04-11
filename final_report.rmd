@@ -108,9 +108,9 @@ p_array_treat_right
 p_array_control_right
 ```
 
-In the chart treatment group, users answered correctly `r p_array_treat_right`% of the time, while in the control they answered `r p_array_control_right`.
+In the chart treatment group, users answered correctly `r p_array_treat_right`% of the time, while in the control they answered `r p_array_control_right` **Table 1.**.
 
-![Pilot Study Results](images/pilot_table.png)
+![Table 1.](images/pilot_table.png)
 
 
 The pilot study was not large enough to provide reliable sample sizes but it did provide confirmation that our survey itself was working as intended.
@@ -124,21 +124,21 @@ The overall breakdown of our study is provided in **Figure 4.**. In all there we
 
 ### Demographics
 
-Regarding relevant demographics, participant age ranged from 18 to 54, with a mean age of 23.5 (standard deviation 5.5). Relevant demographics of the test subjects are presented, grouped by educational level in **Table 1.**.
+Regarding relevant demographics, participant age ranged from 18 to 54, with a mean age of 23.5 (standard deviation 5.5). Relevant demographics of the test subjects are presented, grouped by educational level in **Table 2.**.
 
-![Table 1.](images/demographics.png) 
+![Table 2.](images/demographics.png) 
 
 Approximately half of the respondents had completed some college (likely undergraduate students), a quarter had completed their undergraduate studies, while only 8% progressed onto further education. 16% of respondents had no college. Interestingly, the majority of respondents in all educational groups were ESL students, with over 4/5 of postgraduate respondents reporting ESL status. 
 
 ### Results
 
-**Table 2.** summarizes the responses received for the first set of questions, where the subjects were exposed to either the text or the pie chart. 83.5% of those in the control answered the question correctly, while only 68.9% in the treatment did. 
+**Table 3.** summarizes the responses received for the first set of questions, where the subjects were exposed to either the text or the pie chart. 83.5% of those in the control answered the question correctly, while only 68.9% in the treatment did. 
 
-![Table 2.](images/chart_matrix.png) 
+![Table 3.](images/chart_matrix.png) 
 
-**Table 3.** summarizes the responses received for the second set of questions, where the subjects were exposed to either the text or the icon array. 84.4% of those in the control answered the question correctly, while 93.8% in the treatment did.
+**Table 4.** summarizes the responses received for the second set of questions, where the subjects were exposed to either the text or the icon array. 84.4% of those in the control answered the question correctly, while 93.8% in the treatment did.
 
-![Table 3.](images/array_matrix.png)
+![Table 4.](images/array_matrix.png)
 
 ### Regression Analysis
 
