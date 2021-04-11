@@ -85,7 +85,7 @@ So chart1 is almost 5x harder than chart2. This makes sense: pie charts suck. Le
 simple_model <- lm(all_q_right ~ q1_treat + q2_treat, data = d_j)
 stargazer(simple_model,
           se = list(sqrt(diag(vcovHC(simple_model)))),
-          type="latex",
+          type="text",
           header = TRUE)
 ```
 
@@ -96,7 +96,8 @@ esl_model <- lm(all_q_right ~ q1_treat + q2_treat + as.factor(ESL == "Yes"), dat
 
 stargazer(esl_model,
           se = list(sqrt(diag(vcovHC(esl_model)))),
-          type = 'text',
+          type = 'latex',
+          latex_options = 'hold_position',
           header = F)
 ```
 
@@ -142,8 +143,9 @@ all_q_age <- lm(all_q_right ~ Birthyear, data = d_j)
 
 stargazer(all_q_age,
           se = list(sqrt(diag(vcovHC(all_q_age)))),
-          type = 'text',
-          header = F)
+          type = 'latex',
+          header = T,
+          title = "Score regressed by Age")
 ```
 
 

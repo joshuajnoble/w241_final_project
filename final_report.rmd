@@ -2,7 +2,9 @@
 title: "w214 Final Project"
 author: "Joshua Noble, Ryan T Orton, Sandip Panesar"
 date: "4/8/2021"
-output: pdf_document
+output: 
+  pdf_document:
+    extra_dependencies: ["float"]
 ---
 
 ```{r setup, include=FALSE}
@@ -131,9 +133,8 @@ To summarize, the treatment arm of the chart control group had a higher proporti
 
 We created a simple model that regresses the number of correct answers against the participants being in two treatment groups:
 
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
+\begin{table}[H] \centering 
+  \label{Simple Model} 
 \begin{tabular}{@{\extracolsep{5pt}}lc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
@@ -165,9 +166,8 @@ F Statistic & 2.454$^{*}$ (df = 2; 261) \\
 
 Our second model regresses the response for each arm of the study against being in the respective treatment group and the education level of the participant.
 
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
+\begin{table}[H] \centering 
+  \label{Participant Education Level} 
 \begin{tabular}{@{\extracolsep{5pt}}lcc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
@@ -206,9 +206,124 @@ F Statistic (df = 4; 259) & 2.087$^{*}$ & 3.678$^{***}$ \\
 \end{tabular} 
 \end{table} 
 
+We anticipated that the age of the participants might be a confounding factor and so regressed the test scores against the reported age from survey takers
+
+\begin{table}[H] \centering 
+  \label{Score regressed by Age} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & all\_q\_right \\ 
+\hline \\[-1.8ex] 
+ Birthyear & $-$0.002 \\ 
+  & (0.006) \\ 
+  & \\ 
+ Constant & 1.674$^{***}$ \\ 
+  & (0.152) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 257 \\ 
+R$^{2}$ & 0.0002 \\ 
+Adjusted R$^{2}$ & $-$0.004 \\ 
+Residual Std. Error & 0.536 (df = 255) \\ 
+F Statistic & 0.061 (df = 1; 255) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+
+Another possible confounding factor we anticipated was whether participants had English as a first language.
+
+\begin{table}[H] \centering 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & all\_q\_right \\ 
+\hline \\[-1.8ex] 
+ q1\_treat & $-$0.012 \\ 
+  & (0.070) \\ 
+  & \\ 
+ q2\_treat & 0.150$^{**}$ \\ 
+  & (0.069) \\ 
+  & \\ 
+ as.factor(ESL == "Yes") & 0.038 \\ 
+  & (0.079) \\ 
+  & \\ 
+ Constant & 1.522$^{***}$ \\ 
+  & (0.089) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 264 \\ 
+R$^{2}$ & 0.019 \\ 
+Adjusted R$^{2}$ & 0.008 \\ 
+Residual Std. Error & 0.557 (df = 260) \\ 
+F Statistic & 1.707 (df = 3; 260) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+Finally, we built a fully saturated model including all of our confounding factors:
+
+\begin{table}[H] \centering 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & all\_q\_right \\ 
+\hline \\[-1.8ex] 
+ q1\_treat & $-$0.032 \\ 
+  & (0.070) \\ 
+  & \\ 
+ q2\_treat & 0.097 \\ 
+  & (0.069) \\ 
+  & \\ 
+ as.factor(ESL == "Yes") & $-$0.012 \\ 
+  & (0.075) \\ 
+  & \\ 
+ Birthyear & 0.00001 \\ 
+  & (0.007) \\ 
+  & \\ 
+ as.factor(Edu\_Level)Bachelor's degree & $-$0.031 \\ 
+  & (0.141) \\ 
+  & \\ 
+ as.factor(Edu\_Level)No college & $-$0.073 \\ 
+  & (0.165) \\ 
+  & \\ 
+ as.factor(Edu\_Level)Some college & 0.063 \\ 
+  & (0.137) \\ 
+  & \\ 
+ Constant & 1.600$^{***}$ \\ 
+  & (0.245) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 257 \\ 
+R$^{2}$ & 0.020 \\ 
+Adjusted R$^{2}$ & $-$0.008 \\ 
+Residual Std. Error & 0.537 (df = 249) \\ 
+F Statistic & 0.718 (df = 7; 249) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+
+
 ## References
 
-1. **Insert reference from intro paragraph here**
 2. [Do Icon Arrays Help Reduce Denominator Neglect?]
 3. [(William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994]
 4. (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.)
