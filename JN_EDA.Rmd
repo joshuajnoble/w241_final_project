@@ -1,10 +1,11 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r}
-
 #install.packages ("purrr")
 ```
 
@@ -84,8 +85,8 @@ So chart1 is almost 5x harder than chart2. This makes sense: pie charts suck. Le
 simple_model <- lm(all_q_right ~ q1_treat + q2_treat, data = d_j)
 stargazer(simple_model,
           se = list(sqrt(diag(vcovHC(simple_model)))),
-          type = 'text',
-          header = F)
+          type="latex",
+          header = TRUE)
 ```
 
 q2 is definitely easier as a chart.
@@ -116,13 +117,23 @@ stargazer(q1_esl_model, q2_esl_model,
 
 
 ```{r}
+q_treat_all <- lm(all_q_right ~ q1_treat + q2_treat + as.factor(Edu_Level), data = d_j)
+
+stargazer(q_treat_all,
+          se = list(sqrt(diag(vcovHC(q_treat_all)))),
+          type = 'text',
+          header = TRUE)
+
+```
+
+```{r}
 q1_treat_all <- lm(q1_right ~ q1_treat + as.factor(Edu_Level), data = d_j)
 q2_treat_all <- lm(q2_right ~ q2_treat + as.factor(Edu_Level), data = d_j)
 
 stargazer(q1_treat_all, q2_treat_all,
           #se = list(sqrt(diag(vcovHC(q1_esl_model)))),
-          type = 'text',
-          header = F)
+          type = 'latex',
+          header = TRUE)
 ```
 
 
@@ -200,3 +211,22 @@ p_array_treat_right
 p_array_control_right
 ```
 
+
+```{r}
+pilot <- fread("pilot_data.csv")
+
+pilot[,q1_right := ifelse((Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right'), 1, 0) ]
+pilot[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
+pilot[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
+pilot[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
+pilot[,all_q_right := q1_right + q2_right ]
+
+t <- tabyl(pilot, q1_right, q2_right)
+t %>%
+  adorn_totals(c("row", "col")) %>%
+  adorn_percentages("row") %>% 
+  adorn_pct_formatting(rounding = "half up", digits = 0) %>%
+  adorn_ns() %>%
+  adorn_title("combined") %>%
+  knitr::kable()
+```

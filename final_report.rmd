@@ -2,7 +2,7 @@
 title: "w214 Final Project"
 author: "Joshua Noble, Ryan T Orton, Sandip Panesar"
 date: "4/8/2021"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -16,13 +16,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Reading and understanding ratios, particularly when presented numerically, can be a taxing task even for people who claim to be at ease with mathematics **Reference 1**. The entire field of data visualization has been built around the premise that humans count objects and see ratios better when presented with graphical representations of those quantities rather than numerical ones. We wanted to test whether this was true in a very specific context reading ratios. Many ratios seem quite easy to read and understand e.g. ½, 25%, ‘2 out of 3’, but many others are more difficult to interpret. Consequently, it is more difficult to process their context, particularly when related to probability or efficacy. There are numerous examples of this effect in everyday life: Millions of people buy lottery tickets despite the odds; random sampling is foreign enough that companies still use it as a brain-teaser question in job interviews; and as we’ve seen in the past six months, vaccine efficacy is rather difficult to understand.
+Reading and understanding ratios, particularly when presented numerically, can be a taxing task even for people who claim to be at ease with mathematics **Reference 1**. The entire field of data visualization has been built around the premise that humans count objects and see ratios better when presented with graphical representations of those quantities rather than numerical ones. We wanted to test whether this was true in a very specific context reading ratios. Many ratios seem quite easy to read and understand e.g. 1/2, 25%, ‘2 out of 3’, but many others are more difficult to interpret. Consequently, it is more difficult to process their context, particularly when related to probability or efficacy. There are numerous examples of this effect in everyday life: Millions of people buy lottery tickets despite the odds; random sampling is foreign enough that companies still use it as a brain-teaser question in job interviews; and as we’ve seen in the past six months, vaccine efficacy is rather difficult to understand.
 
 ## Study Rationale and Hypothesis
 
 Vaccine efficacy/effectiveness (VE) is measured by calculating the risk of disease among vaccinated and unvaccinated persons and determining the percentage reduction in risk of disease among vaccinated persons relative to unvaccinated persons. The greater the percentage reduction of illness in the vaccinated group, the greater the vaccine efficacy/effectiveness. The basic formula is written as:
 
-Risk among unvaccinated group − risk among vaccinated group / Risk among unvaccinated group
+Risk among unvaccinated group - risk among vaccinated group / Risk among unvaccinated group
 
 This is how efficacy rates for vaccines are communicated but it's unclear exactly how well this is understood. Certainly the COVID-19 pandemic has provided us ample opportunity to witness how these efficacy results can be confusing.
 
@@ -63,7 +63,7 @@ For the icon array questions, icon arrays were employed to test numerical ratios
 ![Figure 3b.](images/array_2.png){width=50%}
 **Figure 3** a. Icon array representing the treatment group of a hypothetical vaccine trial, whereby 4 out of 200 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. b. Icon array representing the control group of a hypothetical vaccine trial, whereby 10 out of 100 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. Altogether, vaccine efficacy is 80%.
 
-The 'correct' answer to the question presented to the icon array subjects is also significantly easier to interpret compared to those in the chart arm. The correct answer was always 'yes', i.e. the vaccine was efficacious at the 80% level. This permitted insight into whether people may have felt intimidated by numbers, e.g. confirming the sentiment of "I'm bad at math" which is often reported among lay subjects.
+The 'correct' answer to the question presented to the icon array subjects is also significantly easier to interpret compared to those in the chart arm. The correct answer was always 'yes', i.e. the vaccine was efficacious at the 80% level.
 
 ## Confounding Variables
 
@@ -77,7 +77,7 @@ In addition to the study-specific data, we also acquired a range of demographic 
 
 ## Pilot Data
 
-We ran a pilot study using Qualitrics which received 19 valid responses. We'll load and analyze our Pilot Data:
+We ran a pilot study using Qualitrics which received 19 valid responses. This survey was open for approximately 10 days. The structure of the Pilot survey contained two arms which tested a chart against a numerator/denominator numerical representation and an icon array against a numerator/denominator numerical representation. We didn't collect demographic data from respondents. The accuracy of responses to the two questions is shown below: 
 
 ```{r}
 pilot <- fread("pilot_data.csv")
@@ -110,6 +110,9 @@ p_array_control_right
 
 In the chart treatment group, users answered correctly `r p_array_treat_right`% of the time, while in the control they answered `r p_array_control_right`.
 
+![Pilot Study Results](images/pilot_table.png)
+
+
 The pilot study was not large enough to provide reliable sample sizes but it did provide confirmation that our survey itself was working as intended.
 
 ## Results 
@@ -136,6 +139,85 @@ Approximately half of the respondents had completed some college (likely undergr
 **Table 3.** summarizes the responses received for the second set of questions, where the subjects were exposed to either the text or the icon array. 84.4% of those in the control answered the question correctly, while 93.8% in the treatment did.
 
 ![Table 3.](images/array_matrix.png)
+
+### Regression Analysis
+
+We created a simple model that regresses the number of correct answers against the participants being in two treatment groups:
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & all\_q\_right \\ 
+\hline \\[-1.8ex] 
+ q1\_treat & $-$0.014 \\ 
+  & (0.070) \\ 
+  & \\ 
+ q2\_treat & 0.150$^{**}$ \\ 
+  & (0.069) \\ 
+  & \\ 
+ Constant & 1.551$^{***}$ \\ 
+  & (0.064) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 264 \\ 
+R$^{2}$ & 0.018 \\ 
+Adjusted R$^{2}$ & 0.011 \\ 
+Residual Std. Error & 0.557 (df = 261) \\ 
+F Statistic & 2.454$^{*}$ (df = 2; 261) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} \
+
+
+Our second model regresses the response for each arm of the study against being in the respective treatment group and the education level of the participant.
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & q1\_right & q2\_right \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ q1\_treat & $-$0.087 &  \\ 
+  & (0.055) &  \\ 
+  & & \\ 
+ q2\_treat &  & 0.110$^{***}$ \\ 
+  &  & (0.039) \\ 
+  & & \\ 
+ as.factor(Edu\_Level)Bachelor's degree & 0.035 & $-$0.072 \\ 
+  & (0.110) & (0.078) \\ 
+  & & \\ 
+ as.factor(Edu\_Level)No college & 0.093 & $-$0.204$^{**}$ \\ 
+  & (0.118) & (0.083) \\ 
+  & & \\ 
+ as.factor(Edu\_Level)Some college & 0.178$^{*}$ & $-$0.136$^{*}$ \\ 
+  & (0.103) & (0.073) \\ 
+  & & \\ 
+ Constant & 0.656$^{***}$ & 0.953$^{***}$ \\ 
+  & (0.099) & (0.070) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & 264 & 264 \\ 
+R$^{2}$ & 0.031 & 0.054 \\ 
+Adjusted R$^{2}$ & 0.016 & 0.039 \\ 
+Residual Std. Error (df = 259) & 0.441 & 0.312 \\ 
+F Statistic (df = 4; 259) & 2.087$^{*}$ & 3.678$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
 
 ## References
 
