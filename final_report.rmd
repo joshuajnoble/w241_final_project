@@ -67,7 +67,7 @@ The 'correct' answer to the question presented to the icon array subjects is als
 
 ## Confounding Variables
 
-In addition to the study-specific data, we also acquired a range of demographic data of participants. Numerous factors may affect the responses to our questions, namely how well subjects were able to understand them. We therefore included self-designated subject age, English as a second language (ESL) and education level as potential control variables. 
+In addition to the study-specific data, we also acquired a range of demographic data of participants. Numerous factors may affect the responses to our questions, namely how well subjects were able to understand them. These include age, level of educational attainment and English as a second language (ESL) status. We therefore kept data from the Berkeley Xlab experimental survey pertaining to these factors for use in analysis. 
 
 ## Analytic Plan
 
