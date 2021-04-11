@@ -74,6 +74,33 @@ d[, lapply(.SD, length), .SDcols="Vacc_Effec", by="Vacc_Effec"]
 ```
 
 ```{r}
+stems <- frame_data(
+  ~Question, ~Count,
+  "Should Elementary Schools be Opened?", "",
+  "Yes", "114",
+  "No", "150",
+  "How Many Days Should Schools Open?", "",
+  "None", "110",
+  "<5 Weekdays", "116",
+  "Mon-Fri", "38",
+  "At What Capacity Should Schools Open?", "",
+  "25%", "95",
+  "50%", "125",
+  "75%", "28",
+  "100", "16",
+  "How Effective Should the Vaccine Be?", "",
+  "85%-90%", "98",
+  "90%-95%", "96",
+  ">95%", "69"
+  )
+
+png("images/stems.png", height = 5,width = 5,units = "in", res = 72)
+p<-tableGrob(stems)
+grid.arrange(p)
+dev.off()
+```
+
+```{r}
 d[, "Chart_Control_Merged" := paste0(Chart_Control1, Chart_Control2)]
 d[, "Chart_Treat_Merged" := paste0(Chart_Treat1, Chart_Treat2)]
 ```
@@ -121,8 +148,11 @@ rownames(chart) <- c("Control", "Treat")
 colnames(chart) <- c("Right", "Wrong")
 chart$`%Right` = c(round(c_ctrl_pct,1),round(c_trt_pct,1))
 
-# Print grid matrix of both study question confusion matrices:
+```
 
+
+```{r}
+# Save images:
 png("images/chart_matrix.png", height = 2,width = 4,units = "in", res = 72)
 grid.arrange(tableGrob(chart))
 dev.off()
@@ -159,7 +189,8 @@ array <- data.frame(arr)
 rownames(array) <- c("Control", "Treat")
 colnames(array) <- c("Right", "Wrong")
 array$`%Right` = c(round(a_ctrl_pct,1),round(a_trt_pct,1))
-
+```
+```{r}
 png("images/array_matrix.png", height = 2,width = 4,units = "in", res = 72)
 grid.arrange(tableGrob(array))
 dev.off()

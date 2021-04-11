@@ -20,11 +20,13 @@ Reading and understanding ratios, particularly when presented numerically, can b
 
 ## Study Rationale and Hypothesis
 
-Vaccine efficacy/effectiveness (VE) is measured by calculating the risk of disease among vaccinated and unvaccinated persons and determining the percentage reduction in risk of disease among vaccinated persons relative to unvaccinated persons. The greater the percentage reduction of illness in the vaccinated group, the greater the vaccine efficacy/effectiveness. The basic formula is written as:
+Vaccine efficacy is measured by calculating the risk of disease among vaccinated and unvaccinated persons and determining the percentage reduction in risk of disease among vaccinated persons relative to unvaccinated persons. The greater the percentage reduction of illness in the vaccinated group, the greater the vaccine efficacy. The basic formula is written as:
 
-Risk among unvaccinated group - risk among vaccinated group / Risk among unvaccinated group
+$$
+\mathrm{Vaccine\ Efficacy\ =\ \frac{Risk\ among\ unvaccinated\ group\ -\ Risk\ among\ vaccinated\ group}{Risk\ among\ unvaccinated\ group}}
+$$
 
-This is how efficacy rates for vaccines are communicated but it's unclear exactly how well this is understood. Certainly the COVID-19 pandemic has provided us ample opportunity to witness how these efficacy results can be confusing.
+It is unclear exactly how well this is understood, however. Certainly the COVID-19 pandemic has provided us ample opportunity to witness how these efficacy results can be confusing.
 
 According to Garcia-Retamero et al **Reference 2**, denominator neglect is the focus on the number of times a target event has happened (e.g. the number of treated and nontreated patients who die) without considering the overall number of opportunities for it to happen (e.g. the overall number of treated and nontreated patients). In their 2 studies, the authors' addressed the effect of denominator neglect in problems involving treatment risk reduction where samples of treated and non-treated patients and the relative risk reduction were of different sizes. They also tested whether using icon arrays helped people take these different sample sizes into account. 
 
@@ -37,7 +39,6 @@ We hypothesize, based upon the aforementioned evidence that they are. More speci
 ## Methods
 
 The original paper on which our study was based examined numerical ratios and icon arrays. In order to expand the test we wanted to test both a chart that required interpretation, an icon array which might require counting, and a numerical ratio which showed a vaccine efficacy. Our experiment was conducted using the Berkeley XLab to recruit survey takers.
-
 
 ## Research Design
 
@@ -52,6 +53,7 @@ Pie charts are a particularly ineffective form of visualization **Reference 3**.
 
 ![Figure 2a.](images/3_97.png){width=50%}
 ![Figure 2b.](images/5_95.png){width=50%}
+
 **Figure 2** a. A pie chart representing 97% efficacy, b. A pie chart representing 85% efficacy.
 
 ### Icon Array Questions
@@ -61,6 +63,7 @@ For the icon array questions, icon arrays were employed to test numerical ratios
 ![Figure 3a.](images/array_1.png){width=50%}
 
 ![Figure 3b.](images/array_2.png){width=50%}
+
 **Figure 3** a. Icon array representing the treatment group of a hypothetical vaccine trial, whereby 4 out of 200 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. b. Icon array representing the control group of a hypothetical vaccine trial, whereby 10 out of 100 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. Altogether, vaccine efficacy is 80%.
 
 The 'correct' answer to the question presented to the icon array subjects is also significantly easier to interpret compared to those in the chart arm. The correct answer was always 'yes', i.e. the vaccine was efficacious at the 80% level.
@@ -120,25 +123,34 @@ The pilot study was not large enough to provide reliable sample sizes but it did
 The overall breakdown of our study is provided in **Figure 4.**. In all there were 309 respondents. 45 subjects were lost to attrition (test-stage surveys, failure to complete). For the first question, 131 subjects were presented with the pie-chart (treatment group) and 133 subjects were presented with the text control question. For the second question, 128 subjects were presented with the icon array (treatment group), 128 subjects were presented with the text control question. 
 
 ![Figure 4.](images/StudyFlow.png)
+
 **Figure 4.** A diagram demonstrating the study flow and numbers of respondents for each respective control and treatment stage. 
+
+### Stem Questions
+
+These were asked mainly as a distractor for subjects, prior to being presented with the questions of interest. The data is presented in **Table 2.**
+
+![Table 2.](images/stems.png) 
 
 ### Demographics
 
-Regarding relevant demographics, participant age ranged from 18 to 54, with a mean age of 23.5 (standard deviation 5.5). Relevant demographics of the test subjects are presented, grouped by educational level in **Table 2.**.
+Regarding relevant demographics, participant age ranged from 18 to 54, with a mean age of 23.5 (standard deviation 5.5). Relevant demographics of the test subjects are presented, grouped by educational level in **Table 3.**.
 
-![Table 2.](images/demographics.png) 
+![Table 3.](images/demographics.png) 
 
 Approximately half of the respondents had completed some college (likely undergraduate students), a quarter had completed their undergraduate studies, while only 8% progressed onto further education. 16% of respondents had no college. Interestingly, the majority of respondents in all educational groups were ESL students, with over 4/5 of postgraduate respondents reporting ESL status. 
 
-### Results
+### Between-Group Comparison
 
-**Table 3.** summarizes the responses received for the first set of questions, where the subjects were exposed to either the text or the pie chart. 83.5% of those in the control answered the question correctly, while only 68.9% in the treatment did. 
+**Table 4.** summarizes the responses received for the first set of questions, where the subjects were exposed to either the text or the pie chart. 83.5% of those in the control answered the question correctly, while only 68.9% in the treatment did. As these data were categorical, consisted of counts between groups, and were generated through random sampling we utilized a $\chi^2$ test to determine if the proportion of right and wrong answers was significantly different between groups. The $\chi^2$ value was 7.42 and had a p-value of 0.006, indicating a highly significant difference. 
 
-![Table 3.](images/chart_matrix.png) 
+![Table 4.](images/chart_matrix.png) 
 
-**Table 4.** summarizes the responses received for the second set of questions, where the subjects were exposed to either the text or the icon array. 84.4% of those in the control answered the question correctly, while 93.8% in the treatment did.
+**Table 5.** summarizes the responses received for the second set of questions, where the subjects were exposed to either the text or the icon array. 84.4% of those in the control answered the question correctly, while 93.8% in the treatment did. As these data were categorical, consisted of counts between groups, and were generated through random sampling we utilized a $\chi^2$ test to determine if the proportion of right and wrong answers was significantly different between groups. The $\chi^2$ value was 5.80 and had a p-value of 0.0160, indicating a significant difference at the 5% level. 
 
-![Table 4.](images/array_matrix.png)
+![Table 5.](images/array_matrix.png)
+
+To summarize, the treatment arm of the chart control group had a higher proportion of incorrect answers compared to the control arm, while the treatment arm of the icon array group had a higher proportion of correct answers compared to the controls. These differences were significant at the 5% level at least, confirming our original hypothesis. Nevertheless, the $\chi^2$ approach cannot control for the additional demographic factors that we identified as potentially being relevant, so regression analysis may offer further insight by allowing us to control for these factors.  
 
 ### Regression Analysis
 
