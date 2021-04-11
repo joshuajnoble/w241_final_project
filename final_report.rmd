@@ -103,7 +103,7 @@ The overall breakdown of our study is provided in **Figure 4.**. In all there we
 
 ### Stem Questions
 
-These were asked mainly as a distractor for subjects, prior to being presented with the questions of interest. The data is presented in **Table 2.**
+These were asked mainly as a distractor for subjects, prior to being presented with the questions of interest. The results are presented in **Table 2.**
 
 ![Table 2.](images/stems.png) 
 
@@ -129,7 +129,7 @@ To summarize, the treatment arm of the chart control group had a higher proporti
 
 ### Regression Analysis
 
-We created a simple model that regresses the number of correct answers against the participants being in two treatment groups:
+The most basic model regresses the proportion of correct answers in both groups on :
 
 \begin{table}[!htbp] \centering 
   \caption{} 

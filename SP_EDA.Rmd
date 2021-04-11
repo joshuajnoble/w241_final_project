@@ -140,19 +140,20 @@ c_trt_pct <- (chart_treat_right/(chart_treat_right+chart_treat_wrong))*100
 
 
 ```{r}
+# Make matrix with group values
 chart = matrix(c(chart_control_right,chart_treat_right,chart_control_wrong,chart_treat_wrong),ncol=2)
 chisq.test(chart, correct=F)
 
+#Turn into data frame with labels
 chart <- data.frame(chart)
 rownames(chart) <- c("Control", "Treat")
 colnames(chart) <- c("Right", "Wrong")
 chart$`%Right` = c(round(c_ctrl_pct,1),round(c_trt_pct,1))
-
 ```
 
 
 ```{r}
-# Save images:
+# Save image:
 png("images/chart_matrix.png", height = 2,width = 4,units = "in", res = 72)
 grid.arrange(tableGrob(chart))
 dev.off()
@@ -182,17 +183,22 @@ a_trt_pct <- (array_treat_right/(array_treat_right+array_treat_wrong))*100
 ```
 
 ```{r}
+# Make matrix with group values
 arr = matrix(c(array_control_right,array_treat_right,array_control_wrong,array_treat_wrong),ncol=2)
 chisq.test(arr, correct=F)
 
+#Turn into data frame with labels
 array <- data.frame(arr)
 rownames(array) <- c("Control", "Treat")
 colnames(array) <- c("Right", "Wrong")
 array$`%Right` = c(round(a_ctrl_pct,1),round(a_trt_pct,1))
 ```
+
 ```{r}
+# Save image:
 png("images/array_matrix.png", height = 2,width = 4,units = "in", res = 72)
 grid.arrange(tableGrob(array))
 dev.off()
 ```
+
 
