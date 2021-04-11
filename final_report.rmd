@@ -41,18 +41,22 @@ The original paper on which our study was based examined numerical ratios and ic
 
 ## Research Design
 
-We adopted an alternative approach to the classical pre-test/post-test ROXO and instead used a RXRXO post-test control group design. Our survey did not involve any observation prior to treatment or control randomization. The subjects were tested via a multi-factorial approach: All users (i.e. both control and treatment subjects) were first presented with several "stem" questions about the COVID-19 pandemic and children returning to classrooms. These questions were the same for all participants and were intended to obscure the actual purpose of our survey so that participants wouldn't immediately think of it as testing ratios or mathematical concepts. Participants were subsequently randomized into either of two arms (chart-treatment or icon array-treatment). Within each arm, subjects would then be assigned randomly (using Qualtrics' survey flow randomization algorithm) into either control or treatment groups. The control groups in both arms would be presented with a text-only question pertaining to vaccine efficacy, and containing a text-description of a numerical ratio. The treatment groups were presented with either a pie-chart (for those in the chart-treatment arm) or an icon array diagram (for those in the icon array-treatment arm) (**Figure 1.**):
+We adopted an alternative approach to the classical pre-test/post-test ROXO and instead used a RXRXO post-test control group design. Our survey did not involve any observation prior to treatment or control randomization. The subjects were tested via a multi-factorial approach: All users were first presented with several "stem" questions about the COVID-19 pandemic and children returning to classrooms. These questions were the same for all participants and were intended to obscure the actual purpose of our survey so that participants wouldn't immediately think of it as testing ratios or mathematical concepts. Participants were first presented with a question from the chart treatment stage: Either a numerical description or a chart. Then the same subject was presented with a question from the icon array stage: Either a text-based description or an icon array. Within each stage, subjects would then be assigned randomly (using Qualtrics' survey flow randomization algorithm) into either control or treatment groups (**Figure 1.**):
 
 ![Figure 1.](images/roxo.png)
 **Figure 1** A diagram demonstrating the overall RXRXO study design.
 
-Pie charts are a particularly ineffective form of visualization **Reference 3**. Our method involved participants differentiating between pie charts. In information visualization, when presented with several pie charts, subjects often have difficult interpreting or differentiating between them **Reference 4**. The pie charts we utilized lacked numbers and used ratios that were deliberately intended to be difficult to visually decode: 80%, 90%, 95%, and 97%. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with alternative evidence to test the hypothesis that visual aids were still more effective than either text or numerical ratios **Figure 2**
+### Pie Chart Questions
+
+Pie charts are a particularly ineffective form of visualization **Reference 3**. Our method involved participants differentiating between pie charts. In information visualization, when presented with several pie charts, subjects often have difficult interpreting or differentiating between them **Reference 4**. The pie charts we utilized lacked numbers and used ratios that were deliberately intended to be difficult to visually decode: 80%, 90%, 95%, and 97%. In this arm, the pie chart was either right or wrong, depending upon the ratio presented. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with alternative evidence to test the hypothesis that visual aids were still more effective than either text or numerical ratios **Figure 2**
 
 ![2a.](images/3_97.png){width=50%}
 ![2b.](images/5_95.png){width=50%}
 **Figure 2** a. A pie chart representing 97% efficacy, b. A pie chart representing 85% efficacy.
 
-For the icon array arm, icon arrays were employed to test numerical ratios of efficacy against icon arrays that represented vaccine efficacy. These icon arrays differ from the pie chart pairings in that they contain countable quantities of different colored icons and thus can be more precise than the charts **Figure 3**. 
+### Icon Array Questions
+
+For the icon array questions, icon arrays were employed to test numerical ratios of efficacy against icon arrays that represented vaccine efficacy. These icon arrays differ from the pie chart pairings in that they contain countable quantities of different colored icons and thus can be more precise than the charts **Figure 3**. 
 
 ![3a.](images/array_1.png){width=50%}
 
@@ -67,8 +71,8 @@ In addition to the study-specific data, we also acquired a range of demographic 
 
 ## Analytic Plan
 
-> 1. Descriptive statistics
-> 2. Group-based Statistical Tests (Chi-Squared)
+> 1. Descriptive statistics.
+> 2. Group-based Statistical Tests (Chi-Squared).
 > 3. Regression Analysis with and without potential control features. 
 
 ## Pilot Data
@@ -108,6 +112,17 @@ p_array_control_right
 In the chart treatment group, users answered correctly `r p_array_treat_right`% of the time, while in the control they answered `r p_array_control_right`.
 
 The pilot study was not large enough to provide reliable sample sizes but it did provide confirmation that our survey itself was working as intended.
+
+## Results 
+
+The overall breakdown of our study is provided in **Figure 4.**. In all there were 309 respondents. 45 subjects were lost to attrition (test-stage surveys, failure to complete). For the first question, 131 subjects were presented with the pie-chart (treatment group) and 133 subjects were presented with the text control question. For the second question, 128 subjects were presented with the icon array (treatment group), 128 subjects were presented with the text control question. 
+
+![4.](images/Study Flow.png)
+**Figure 4.** A diagram demonstrating the study flow and numbers of respondents. 
+
+### Demographics
+
+
 
 ## References
 
