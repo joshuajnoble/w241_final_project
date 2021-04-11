@@ -19,6 +19,7 @@ library(stargazer)
 library(dplyr)
 library(janitor)
 library(stringr)
+library(gridExtra)
 ```
 
 ```{r}
@@ -30,10 +31,6 @@ colnames(d)
 ```
 
 Simple EDA for demographics:
-```{r}
-#Gender
-d[,lapply(.SD, length), .SDcols="Gender", by="Gender"]
-```
 
 ```{r}
 # Remove non-numeric answers in birthyear
@@ -45,14 +42,26 @@ d[Birthyear<=1, Birthyear:=""]
 ```{r}
 # Mean age of Participants
 d[, mean(Birthyear, na.rm=TRUE)]
+d[, sd(Birthyear, na.rm=TRUE)]
 
-# Mean age of Participants by Gender
-d[, mean(Birthyear, na.rm=TRUE), by=Gender]
+# Describe Age
+summary(d$Birthyear)
 ```
 
 ```{r}
-#Participant educational level
-d[, lapply(.SD, length), .SDcols="Edu_Level", by="Edu_Level"]
+#Various Demographics by Education Level
+a <- d[, .N, by=Edu_Level]
+b <- d[, lapply(.SD, mean, na.rm=TRUE), .SDcols="Birthyear", by="Edu_Level"]
+c <- d[(ESL=="Yes"), .N, by=Edu_Level]
+e <- d[, lapply(.SD, length), .SDcols="ESL", by=Edu_Level]
+
+
+
+demo <- data.table("Educational Level"=a$Edu_Level, "Count"=a$N, "%Total"=round((a$N/sum(a$N))*100, 1), "Mean Age"=round(b$Birthyear, 1), "%ESL"=round((c$N/e$ESL)*100, 1))
+png("demographics.png", height = 2,width = 7,units = "in", res = 72)
+p<-tableGrob(demo)
+grid.arrange(p)
+dev.off()
 ```
 
 ```{r}
