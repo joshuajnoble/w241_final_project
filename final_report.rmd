@@ -239,7 +239,7 @@ F Statistic & 0.061 (df = 1; 255) \\
 Another possible confounding factor we anticipated was whether participants had English as a first language.
 
 \begin{table}[H] \centering 
-  \label{} 
+  \label{Score regressed by ESL} 
 \begin{tabular}{@{\extracolsep{5pt}}lc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
@@ -275,7 +275,7 @@ F Statistic & 1.707 (df = 3; 260) \\
 Finally, we built a fully saturated model including all of our confounding factors:
 
 \begin{table}[H] \centering 
-  \label{} 
+  \label{Fully saturated} 
 \begin{tabular}{@{\extracolsep{5pt}}lc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
