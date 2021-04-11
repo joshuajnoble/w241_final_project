@@ -50,24 +50,24 @@ We adopted an alternative approach to the classical pre-test/post-test ROXO and 
 
 Pie charts are a particularly ineffective form of visualization **Reference 3**. Our method involved participants differentiating between pie charts. In information visualization, when presented with several pie charts, subjects often have difficult interpreting or differentiating between them **Reference 4**. The pie charts we utilized lacked numbers and used ratios that were deliberately intended to be difficult to visually decode: 80%, 90%, 95%, and 97%. In this arm, the pie chart was either right or wrong, depending upon the ratio presented. If a pie chart without labels is more effective than a numerical ratio at expressing efficacy then this provides us with alternative evidence to test the hypothesis that visual aids were still more effective than either text or numerical ratios **Figure 2**
 
-![2a.](images/3_97.png){width=50%}
-![2b.](images/5_95.png){width=50%}
+![Figure 2a.](images/3_97.png){width=50%}
+![Figure 2b.](images/5_95.png){width=50%}
 **Figure 2** a. A pie chart representing 97% efficacy, b. A pie chart representing 85% efficacy.
 
 ### Icon Array Questions
 
 For the icon array questions, icon arrays were employed to test numerical ratios of efficacy against icon arrays that represented vaccine efficacy. These icon arrays differ from the pie chart pairings in that they contain countable quantities of different colored icons and thus can be more precise than the charts **Figure 3**. 
 
-![3a.](images/array_1.png){width=50%}
+![Figure 3a.](images/array_1.png){width=50%}
 
-![3b.](images/array_2.png){width=50%}
+![Figure 3b.](images/array_2.png){width=50%}
 **Figure 3** a. Icon array representing the treatment group of a hypothetical vaccine trial, whereby 4 out of 200 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. b. Icon array representing the control group of a hypothetical vaccine trial, whereby 10 out of 100 (represented by red and black figures, respectively) contracted COVID-19 following vaccination. Altogether, vaccine efficacy is 80%.
 
 The 'correct' answer to the question presented to the icon array subjects is also significantly easier to interpret compared to those in the chart arm. The correct answer was always 'yes', i.e. the vaccine was efficacious at the 80% level.
 
 ## Confounding Variables
 
-In addition to the study-specific data, we also acquired a range of demographic data of participants. Numerous factors may affect the responses to our questions, namely how well subjects were able to understand them. We therefore included self-designated subject age, English as a second language (ESL) and education level as potential control variables. 
+In addition to the study-specific data, we also acquired a range of demographic data of participants. Numerous factors may affect the responses to our questions, namely how well subjects were able to understand them. These include age, level of educational attainment and English as a second language (ESL) status. We therefore kept data from the Berkeley Xlab experimental survey pertaining to these factors for use in analysis. 
 
 ## Analytic Plan
 
@@ -87,10 +87,16 @@ The pilot study was not large enough to provide reliable sample sizes but it did
 
 The overall breakdown of our study is provided in **Figure 4.**. In all there were 309 respondents. 45 subjects were lost to attrition (test-stage surveys, failure to complete). For the first question, 131 subjects were presented with the pie-chart (treatment group) and 133 subjects were presented with the text control question. For the second question, 128 subjects were presented with the icon array (treatment group), 128 subjects were presented with the text control question. 
 
-![4.](images/StudyFlow.png)
+![Figure 4.](images/StudyFlow.png)
 **Figure 4.** A diagram demonstrating the study flow and numbers of respondents for each respective control and treatment stage. 
 
 ### Demographics
+
+Regarding relevant demographics, participant age ranged from 18 to 54, with a mean age of 23.5 (standard deviation 5.5). Relevant demographics of the test subjects are presented, grouped by educational level in **Table 1.**.
+
+![Table 1.](images/demographics.png) 
+
+Approximately half of the respondents had completed some college (likely undergraduate students), a quarter had completed their undergraduate studies, while only 8% progressed onto further education. 16% of respondents had no college. Interestingly, the majority of respondents in all educational groups were ESL students, with almost 4/5 of postgraduate respondents reporting ESL status. 
 
 
 ### Regression Analysis
