@@ -117,8 +117,8 @@ The pilot study was not large enough to provide reliable sample sizes but it did
 
 The overall breakdown of our study is provided in **Figure 4.**. In all there were 309 respondents. 45 subjects were lost to attrition (test-stage surveys, failure to complete). For the first question, 131 subjects were presented with the pie-chart (treatment group) and 133 subjects were presented with the text control question. For the second question, 128 subjects were presented with the icon array (treatment group), 128 subjects were presented with the text control question. 
 
-![4.](images/Study Flow.png)
-**Figure 4.** A diagram demonstrating the study flow and numbers of respondents. 
+![4.](images/StudyFlow.png)
+**Figure 4.** A diagram demonstrating the study flow and numbers of respondents for each respective control and treatment stage. 
 
 ### Demographics
 
