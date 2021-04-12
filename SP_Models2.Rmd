@@ -7,6 +7,7 @@ output:
 
 ```{r}
 #install.packages ("purrr")
+#install.packages("janitor")
 ```
 
 
@@ -141,9 +142,6 @@ stargazer(esl_model_ctrl1, esl_model_treat1, esl_model_ctrl2, esl_model_treat2,
           star.cutoffs = c(.05, .01, .001))
 ```
 
-Q1 doesn't make a difference, Q2 does, with our bad data removed ESL doesn't. 
-
-Does ESL affect the two questions separately? We'll look at interaction effects:
 
 
 ```{r}
