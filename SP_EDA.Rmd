@@ -55,8 +55,8 @@ b <- d[, lapply(.SD, mean, na.rm=TRUE), .SDcols="Birthyear", by="Edu_Level"]
 c <- d[(ESL=="Yes"), .N, by=Edu_Level]
 e <- d[, lapply(.SD, length), .SDcols="ESL", by=Edu_Level]
 
-demo <- data.table("Educational Level"=a$Edu_Level, "Count"=a$N, "%Total"=round((a$N/sum(a$N))*100, 1), "Mean Age"=round(b$Birthyear, 1), "%ESL"=round((c$N/e$ESL)*100, 1))
-png("demographics.png", height = 2,width = 7,units = "in", res = 72)
+demo <- data.table("Educational Level"=a$Edu_Level, "n"=a$N, "%Total"=round((a$N/sum(a$N))*100, 1), "Mean Age"=round(b$Birthyear, 1), "%ESL"=round((c$N/e$ESL)*100, 1))
+png("images/demographics.png", height = 2,width = 7,units = "in", res = 72)
 p<-tableGrob(demo)
 grid.arrange(p)
 dev.off()
@@ -75,7 +75,7 @@ d[, lapply(.SD, length), .SDcols="Vacc_Effec", by="Vacc_Effec"]
 
 ```{r}
 stems <- frame_data(
-  ~Question, ~Count,
+  ~Question, ~n,
   "Should Elementary Schools be Opened?", "",
   "Yes", "114",
   "No", "150",
