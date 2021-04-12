@@ -42,7 +42,7 @@ d_j[Birthyear<=1, Birthyear:=""]
 d_j[,q1_right := ifelse((Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right'), 1, 0) ]
 
 d_j[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
-
+d_j[, q1_control := ifelse( (Chart_Control1 != "" | Chart_Control2 != ""), 1, 0) ]
 ```
 
 
@@ -51,7 +51,7 @@ d_j[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
 d_j[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
 
 d_j[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
-
+d_j[, q2_control := ifelse( Array_Control2  != "" | Array_Control1  != "" | Array_Control3 != "", 1, 0) ]
 d_j[,all_q_right := q1_right + q2_right ]
 
 #now not significant
@@ -61,71 +61,84 @@ tabyl(d_j, q1_right, q2_right)
 ```
 
 
-Got the first chart right/wrong:
 
-```{r}
-chart1_wrong <- nrow(d_j[(q1_right == 0 & q1_treat == 1),]) 
-chart1_right <- nrow(d_j[(q1_right == 1 & q1_treat == 1),]) 
-chart1_treated <- nrow(d_j[q1_treat == 1,])
-print(chart1_wrong / chart1_treated)
-print(chart1_right / chart1_treated)
-```
 
-```{r}
-chart2_wrong <- nrow(d_j[q2_right == 0 & q2_treat == 1,])
-chart2_right <- nrow(d_j[q2_right == 1 & q2_treat == 1,])
-print(chart2_wrong / nrow(d_j[q2_treat == 1]))
-print(chart2_right / nrow(d_j[q2_treat == 1]))
-```
+
 
 So chart1 is almost 5x harder than chart2. This makes sense: pie charts suck. Let's look at simple stuff:
-
-
 ```{r}
 #simple_model <- lm(all_q_right ~ q1_treat + q2_treat, data = d_j)
+simple_model_c1 <- lm(q1_right ~ q1_control, data = d_j)
+simple_model_c2 <- lm(q2_right ~ q2_control, data = d_j)
 simple_model1 <- lm(q1_right ~ q1_treat, data = d_j)
 simple_model2 <- lm(q2_right ~ q2_treat, data = d_j)
-simple_model1_rse <- lmtest::coeftest(simple_model1, vcov. = sandwich::vcovHC(simple_model1, type = 'HC1'))
-simple_model2_rse <- lmtest::coeftest(simple_model2, vcov. = sandwich::vcovHC(simple_model2, type = 'HC1'))
 
-stargazer(simple_model1_rse, simple_model2_rse,
+se1 <- sqrt(diag(vcovHC(simple_model_c1, type = "HC1")))
+se2 <- sqrt(diag(vcovHC(simple_model1, type = "HC1")))
+se3 <- sqrt(diag(vcovHC(simple_model_c2, type = "HC1")))
+se4 <- sqrt(diag(vcovHC(simple_model2, type = "HC1")))
+
+stargazer(simple_model_c1, simple_model1, simple_model_c2, simple_model2,
+          se = list(se1, se2, se3, se4),
           type="text",
-          header = TRUE)
+          header = TRUE, 
+          star.cutoffs = c(.05, .01, .001))
 
-stargazer(simple_model1_rse, simple_model2_rse,
+stargazer(simple_model_c1, simple_model1, simple_model_c2, simple_model2,
+          se = list(se1, se2, se3, se4),
           type="latex",
-          header = TRUE)
-```
-
-```{r}
-edu_model1 <- lm(q1_right ~ q1_treat + as.factor(Edu_Level) + q1_treat*as.factor(Edu_Level), data = d_j)
-edu_model2 <- lm(q2_right ~ q2_treat + as.factor(Edu_Level) + q2_treat*as.factor(Edu_Level), data = d_j)
-edu_model1_rse <- lmtest::coeftest(edu_model1, vcov. = sandwich::vcovHC(edu_model1, type = 'HC1'))
-edu_model2_rse <- lmtest::coeftest(edu_model2, vcov. = sandwich::vcovHC(edu_model2, type = 'HC1'))
-
-stargazer(edu_model1_rse, edu_model2_rse,
-          type = 'text',
-          header = T)
-
-stargazer(edu_model1_rse, edu_model2_rse,
-          type = 'latex',
-          header = T)
+          header = TRUE, 
+          star.cutoffs = c(.05, .01, .001))
 ```
 
 
 ```{r}
-esl_model1 <- lm(q1_right ~ q1_treat + as.factor(ESL == "Yes") + q1_treat*as.factor(ESL=="Yes"), data = d_j)
-esl_model2 <- lm(q2_right ~ q2_treat + as.factor(ESL == "Yes") + q2_treat*as.factor(ESL=="Yes"), data = d_j)
-esl_model1_rse <- lmtest::coeftest(esl_model1, vcov. = sandwich::vcovHC(esl_model1, type = 'HC1'))
-esl_model2_rse <- lmtest::coeftest(esl_model2, vcov. = sandwich::vcovHC(esl_model2, type = 'HC1'))
+edu_model_ctrl1 <- lm(q1_right ~ q1_control + as.factor(Edu_Level), data = d_j)
+edu_model_ctrl2 <- lm(q2_right ~ q2_control + as.factor(Edu_Level), data = d_j)
+edu_model_treat1 <- lm(q1_right ~ q1_treat + as.factor(Edu_Level), data = d_j)
+edu_model_treat2 <- lm(q2_right ~ q2_treat + as.factor(Edu_Level), data = d_j)
 
-stargazer(esl_model1_rse, esl_model2_rse,
+se5 <- sqrt(diag(vcovHC(edu_model_ctrl1, type = "HC1")))
+se6 <- sqrt(diag(vcovHC(edu_model_treat1, type = "HC1")))
+se7 <- sqrt(diag(vcovHC(edu_model_ctrl2, type = "HC1")))
+se8 <- sqrt(diag(vcovHC(edu_model_treat2, type = "HC1")))
+
+stargazer(edu_model_ctrl1, edu_model_treat1, edu_model_ctrl2, edu_model_treat2,
+          se = list(se5, se6, se7, se8),
           type = 'text',
-          header = T)
+          header = T, 
+          star.cutoffs = c(.05, .01, .001))
 
-stargazer(esl_model1_rse, esl_model2_rse,
+stargazer(edu_model_ctrl1, edu_model_treat1, edu_model_ctrl2, edu_model_treat2,
+          se = list(se5, se6, se7, se8),
           type = 'latex',
-          header = T)
+          header = T, 
+          star.cutoffs = c(.05, .01, .001))
+```
+
+
+```{r}
+esl_model_ctrl1 <- lm(q1_right ~ q1_control + as.factor(ESL == "Yes"), data = d_j)
+esl_model_treat1 <- lm(q1_right ~ q1_treat + as.factor(ESL == "Yes"), data = d_j)
+esl_model_ctrl2 <- lm(q2_right ~ q2_control + as.factor(ESL == "Yes"), data = d_j)
+esl_model_treat2 <- lm(q2_right ~ q2_treat + as.factor(ESL == "Yes"), data = d_j)
+
+se9 <- sqrt(diag(vcovHC(esl_model_ctrl1, type = "HC1")))
+se10 <- sqrt(diag(vcovHC(esl_model_treat1, type = "HC1")))
+se11 <- sqrt(diag(vcovHC(esl_model_ctrl2, type = "HC1")))
+se12 <- sqrt(diag(vcovHC(esl_model_treat2, type = "HC1")))
+
+stargazer(esl_model_ctrl1, esl_model_treat1, esl_model_ctrl2, esl_model_treat2,
+          se = list(se9, se10, se11, se12),
+          type = 'text',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
+
+stargazer(esl_model_ctrl1, esl_model_treat1, esl_model_ctrl2, esl_model_treat2,
+          se = list(se9, se10, se11, se12),
+          type = 'latex',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
 ```
 
 Q1 doesn't make a difference, Q2 does, with our bad data removed ESL doesn't. 
@@ -134,87 +147,60 @@ Does ESL affect the two questions separately? We'll look at interaction effects:
 
 
 ```{r}
-age_model1 <- lm(q1_right ~ q1_treat + Birthyear + q1_treat*Birthyear, data = d_j)
-age_model2 <- lm(q2_right ~ q2_treat + Birthyear + q2_treat*Birthyear, data = d_j)
-age_model1_rse <- lmtest::coeftest(age_model1, vcov. = sandwich::vcovHC(age_model1, type = 'HC1'))
-age_model2_rse <- lmtest::coeftest(age_model2, vcov. = sandwich::vcovHC(age_model2, type = 'HC1'))
+age_model_ctrl1 <- lm(q1_right ~ q1_control + Birthyear, data = d_j)
+age_model_treat1 <- lm(q1_right ~ q1_treat + Birthyear, data = d_j)
+age_model_ctrl2 <- lm(q2_right ~ q2_control + Birthyear, data = d_j)
+age_model_treat2 <- lm(q2_right ~ q2_treat + Birthyear, data = d_j)
+
+se13 <- sqrt(diag(vcovHC(age_model_ctrl1, type = "HC1")))
+se14 <- sqrt(diag(vcovHC(age_model_treat1, type = "HC1")))
+se15 <- sqrt(diag(vcovHC(age_model_ctrl2, type = "HC1")))
+se16 <- sqrt(diag(vcovHC(age_model_treat2, type = "HC1")))
+
   
-stargazer(age_model1_rse, age_model2_rse,
+stargazer(age_model_ctrl1, age_model_treat1, age_model_ctrl2, age_model_treat2,
+          se = list(se13, se14, se15, se16),
           type = 'text',
-          header = T)
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
+
+stargazer(age_model_ctrl1, age_model_treat1, age_model_ctrl2, age_model_treat2,
+          se = list(se13, se14, se15, se16),
+          type = 'latex',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
 ```
 
+```{r}
+sat_model1 <- lm(q1_right ~ q1_treat + as.factor(Edu_Level) + as.factor(ESL == "Yes") + Birthyear, data = d_j)
+sat_model2 <- lm(q2_right ~ q2_treat + as.factor(Edu_Level) + as.factor(ESL == "Yes") + Birthyear, data = d_j)
 
+stargazer(sat_model1, sat_model2,
+          se = list((sqrt(diag(vcovHC(sat_model1, type = "HC1")))), sqrt(diag(vcovHC(sat_model2, type = "HC1")))),
+          type = 'text',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
+
+stargazer(sat_model1, sat_model2,
+          se = list((sqrt(diag(vcovHC(sat_model1, type = "HC1")))), sqrt(diag(vcovHC(sat_model2, type = "HC1")))),
+          type = 'latex',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
+```
  
 ```{r}
-proportions_table = table(d_j[ESL=="No",], d_j[ESL=="Yes",])
-chisq.test(proportions_table)
-```
+q1q21 <- lm(all_q_right ~ q1_treat + q2_treat + q1_treat*q2_treat, data = d_j)
+
+stargazer(q1q21,
+          se = list((sqrt(diag(vcovHC(q1q21, type = "HC1")))), sqrt(diag(vcovHC(q1q21, type = "HC1")))),
+          type = 'text',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
+
+stargazer(q1q21,
+          se = list((sqrt(diag(vcovHC(q1q21, type = "HC1")))), sqrt(diag(vcovHC(q1q21, type = "HC1")))),
+          type = 'latex',
+          header = T,
+          star.cutoffs = c(.05, .01, .001))
+``` 
  
-Looks like our ESL folks are statistically the same as our non. How about our chart strugglers?
-
-```{r}
-proportions_table_2 = table(d_j[q1_treat == 1 & q1_right == 0,], d_j[q2_treat == 1 & q2_right == 0,])
-chisq.test(proportions_table_2)
-```
-
-Treated/non-treated?
-
-```{r}
-treated_groups = table(d_j[q1_treat == 1,], d_j[q2_treat == 1,])
-chisq.test(treated_groups)
-```
-
-Also, different.
-
-```{r}
-pilot <- fread("pilot_data.csv")
-
-pilot[,q1_right := ifelse((Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right'), 1, 0) ]
-
-pilot[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
-
-pilot[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
-
-pilot[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
-
-pilot[,all_q_right := q1_right + q2_right ]
-
-tabyl(pilot, q1_right, q2_right)
-```
-
-```{r}
-p_chart_treat_right <- nrow(pilot[q1_right == 1 & q1_treat == 1,]) / nrow(pilot[q1_treat == 1,]) 
-p_chart_control_right <- nrow(pilot[q1_right == 1 & q1_treat == 0,]) / nrow(pilot[q1_treat == 0,]) 
-
-p_chart_treat_right
-p_chart_control_right
-```
-
-```{r}
-p_array_treat_right <- nrow(pilot[q2_right == 1 & q2_treat == 1,]) / nrow(pilot[q2_treat == 1,])
-p_array_control_right <- nrow(pilot[q2_right == 1 & q2_treat == 0,]) / nrow(pilot[q2_treat == 0,])
-
-p_array_treat_right
-p_array_control_right
-```
-
-
-```{r}
-pilot <- fread("pilot_data.csv")
-
-pilot[,q1_right := ifelse((Chart_Control1 == 'Right' | Chart_Control2 == 'Right' | Chart_Treat1 == 'Right' | Chart_Treat2 == 'Right'), 1, 0) ]
-pilot[,q1_treat := ifelse( (Chart_Treat1 != "" | Chart_Treat2 != ""), 1, 0) ]
-pilot[,q2_right := ifelse(Array_Control1 == 'Right' | Array_Control2 == 'Right' | Array_Control3 == 'Right' | Array_Treat1 == 'Right' | Array_Treat2 == 'Right' | Array_Treat3 == 'Right', 1, 0) ]
-pilot[,q2_treat := ifelse( Array_Treat2  != "" | Array_Treat1  != "" | Array_Treat3 != "", 1, 0) ]
-pilot[,all_q_right := q1_right + q2_right ]
-
-t <- tabyl(pilot, q1_right, q2_right)
-t %>%
-  adorn_totals(c("row", "col")) %>%
-  adorn_percentages("row") %>% 
-  adorn_pct_formatting(rounding = "half up", digits = 0) %>%
-  adorn_ns() %>%
-  adorn_title("combined") %>%
-  knitr::kable()
-```
