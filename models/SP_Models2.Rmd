@@ -89,7 +89,8 @@ stargazer(simple_model_c1, simple_model1, simple_model_c2, simple_model2,
           se = list(se1, se2, se3, se4),
           type="latex",
           header = TRUE, 
-          star.cutoffs = c(.05, .01, .001))
+          star.cutoffs = c(.05, .01, .001), 
+          out = "models/simple_model.html")
 ```
 
 
@@ -114,7 +115,8 @@ stargazer(edu_model_ctrl1, edu_model_treat1, edu_model_ctrl2, edu_model_treat2,
           se = list(se5, se6, se7, se8),
           type = 'latex',
           header = T, 
-          star.cutoffs = c(.05, .01, .001))
+          star.cutoffs = c(.05, .01, .001),
+          out = "models/edu_model.html")
 ```
 
 
@@ -139,7 +141,8 @@ stargazer(esl_model_ctrl1, esl_model_treat1, esl_model_ctrl2, esl_model_treat2,
           se = list(se9, se10, se11, se12),
           type = 'latex',
           header = T,
-          star.cutoffs = c(.05, .01, .001))
+          star.cutoffs = c(.05, .01, .001),
+          out = "models/esl_model.html")
 ```
 
 
@@ -166,39 +169,11 @@ stargazer(age_model_ctrl1, age_model_treat1, age_model_ctrl2, age_model_treat2,
           se = list(se13, se14, se15, se16),
           type = 'latex',
           header = T,
-          star.cutoffs = c(.05, .01, .001))
+          star.cutoffs = c(.05, .01, .001),
+          out = "models/age_model.html")
 ```
 
-```{r}
-sat_model1 <- lm(q1_right ~ q1_treat + as.factor(Edu_Level) + as.factor(ESL == "Yes") + Birthyear, data = d_j)
-sat_model2 <- lm(q2_right ~ q2_treat + as.factor(Edu_Level) + as.factor(ESL == "Yes") + Birthyear, data = d_j)
 
-stargazer(sat_model1, sat_model2,
-          se = list((sqrt(diag(vcovHC(sat_model1, type = "HC1")))), sqrt(diag(vcovHC(sat_model2, type = "HC1")))),
-          type = 'text',
-          header = T,
-          star.cutoffs = c(.05, .01, .001))
-
-stargazer(sat_model1, sat_model2,
-          se = list((sqrt(diag(vcovHC(sat_model1, type = "HC1")))), sqrt(diag(vcovHC(sat_model2, type = "HC1")))),
-          type = 'latex',
-          header = T,
-          star.cutoffs = c(.05, .01, .001))
-```
  
-```{r}
-q1q21 <- lm(all_q_right ~ q1_treat + q2_treat + q1_treat*q2_treat, data = d_j)
 
-stargazer(q1q21,
-          se = list((sqrt(diag(vcovHC(q1q21, type = "HC1")))), sqrt(diag(vcovHC(q1q21, type = "HC1")))),
-          type = 'text',
-          header = T,
-          star.cutoffs = c(.05, .01, .001))
-
-stargazer(q1q21,
-          se = list((sqrt(diag(vcovHC(q1q21, type = "HC1")))), sqrt(diag(vcovHC(q1q21, type = "HC1")))),
-          type = 'latex',
-          header = T,
-          star.cutoffs = c(.05, .01, .001))
-``` 
  

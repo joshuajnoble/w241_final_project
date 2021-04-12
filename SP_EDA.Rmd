@@ -20,6 +20,7 @@ library(dplyr)
 library(janitor)
 library(stringr)
 library(gridExtra)
+library(pwr)
 ```
 
 ```{r}
@@ -151,7 +152,6 @@ colnames(chart) <- c("Right", "Wrong")
 chart$`%Right` = c(round(c_ctrl_pct,1),round(c_trt_pct,1))
 ```
 
-
 ```{r}
 # Save image:
 png("images/chart_matrix.png", height = 2,width = 4,units = "in", res = 72)
@@ -194,6 +194,24 @@ colnames(array) <- c("Right", "Wrong")
 array$`%Right` = c(round(a_ctrl_pct,1),round(a_trt_pct,1))
 ```
 
+
+```{r}
+# expected power:
+j<-pwr.2p.test(h = ES.h(p1 = 0.86, p2 = 0.80), sig.level = 0.05, power = .80)
+plot(j)
+```
+
+```{r}
+# How well powered were our actual tests:
+pwr.2p2n.test(h = 0.1603, n1 = 135, n2 = 128, sig.level = 0.05)
+pwr.2p2n.test(h = 0.1603, n1 = 133, n2 = 119, sig.level = 0.05)
+```
+
+```{r}
+# How well powered were our actual tests:
+pwr.2p2n.test(h = 0.1603, n1 = 136, n2 = 128, sig.level = 0.05)
+```
+
 ```{r}
 # Save image:
 png("images/array_matrix.png", height = 2,width = 4,units = "in", res = 72)
@@ -202,3 +220,71 @@ dev.off()
 ```
 
 
+```{r}
+pilot <- fread("pilot_data.csv")
+
+pilot[, "Chart_Control_Merged" := paste0(Chart_Control1, Chart_Control2)]
+pilot[, "Chart_Treat_Merged" := paste0(Chart_Treat1, Chart_Treat2)]
+
+pilot[, "Array_Control_Merged" := paste0(Array_Control1, Array_Control2, Array_Control3)]
+pilot[, "Array_Treat_Merged" := paste0(Array_Treat1, Array_Treat2, Array_Treat3)]
+
+pc_control_right <- pilot[(Chart_Control_Merged=="Right"), .N]
+pc_control_wrong <- pilot[(Chart_Control_Merged=="Wrong"), .N]
+pc_treat_right <- pilot[(Chart_Treat_Merged=="Right"), .N]
+pc_treat_wrong <- pilot[(Chart_Treat_Merged=="Wrong"), .N]
+
+pa_control_right <- pilot[(Array_Control_Merged=="Right"), .N]
+pa_control_wrong <- pilot[(Array_Control_Merged=="Wrong"), .N]
+pa_treat_right <- pilot[(Array_Treat_Merged=="Right"), .N]
+pa_treat_wrong <- pilot[(Array_Treat_Merged=="Wrong"), .N]
+
+#Chart Control % right:
+pc_ctrl_pct <- (pc_control_right/(pc_control_right+pc_control_wrong))*100
+#Chart Treat % right:
+pc_trt_pct <- (pc_treat_right/(pc_treat_right+pc_treat_wrong))*100
+
+#Array Control % right:
+pa_ctrl_pct <- (pa_control_right/(pa_control_right+pa_control_wrong))*100
+#Array Treat % right:
+pa_trt_pct <- (pa_treat_right/(pa_treat_right+pa_treat_wrong))*100
+```
+
+```{r}
+pc_control_right
+pc_control_wrong
+pc_treat_right
+pc_treat_wrong
+```
+
+```{r}
+# Make matrix with group values
+pc = matrix(c(pc_control_right,pc_treat_right,pc_control_wrong,pc_treat_wrong),ncol=2)
+
+#Turn into data frame with labels
+p <- data.frame(pc)
+rownames(p) <- c("Control", "Treat")
+colnames(p) <- c("Right", "Wrong")
+p$`%Right` = c(round(pc_ctrl_pct,1),round(pc_trt_pct,1))
+
+# Save image:
+png("images/pilot_chart_matrix.png", height = 2,width = 4,units = "in", res = 72)
+grid.arrange(tableGrob(p))
+dev.off()
+```
+
+```{r}
+# Make matrix with group values
+pa = matrix(c(pa_control_right,pa_treat_right,pa_control_wrong,pa_treat_wrong),ncol=2)
+
+#Turn into data frame with labels
+p <- data.frame(pa)
+rownames(p) <- c("Control", "Treat")
+colnames(p) <- c("Right", "Wrong")
+p$`%Right` = c(round(pa_ctrl_pct,1),round(pa_trt_pct,1))
+
+# Save image:
+png("images/pilot_array_matrix.png", height = 2,width = 4,units = "in", res = 72)
+grid.arrange(tableGrob(p))
+dev.off()
+```
